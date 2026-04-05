@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Maa Saheb Events | Ganu's Kitchen - Premium Catering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0C0C10 0%, #16161D 100%);
+            font-family: 'Inter', sans-serif;
+            color: #EDEDF0;
+            padding: 24px 20px;
+            min-height: 100vh;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #23232B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #C9A03D; border-radius: 10px; }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* ========== HEADER ========== */
+        .brand-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .brand-logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.8rem;
+        }
+        .brand-pill {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            padding: 0.7rem 2rem;
+            border-radius: 100px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(201, 160, 61, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: 'Playfair Display', serif;
+        }
+        .brand-pill.maa-saheb {
+            background: linear-gradient(135deg, rgba(106, 27, 26, 0.85), rgba(139, 44, 37, 0.85));
+            color: #FFDF99;
+            border-color: #E4B363;
+        }
+        .brand-pill.ganu-kitchen {
+            background: linear-gradient(135deg, rgba(30, 42, 46, 0.9), rgba(44, 62, 47, 0.9));
+            color: #F5B642;
+            border-color: #D99E2E;
+        }
+        .brand-pill.active-brand {
+            transform: scale(1.03);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+            border-color: #FFD966;
+        }
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #F3E7C0, #C9A03D);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-sub {
+            color: #A0A1B0;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Search */
+        .search-wrapper {
+            background: rgba(20, 22, 27, 0.8);
+            backdrop-filter: blur(16px);
+            border-radius: 60px;
+            padding: 0.9rem 1.5rem;
+            margin: 2rem 0 1.8rem;
+            border: 1px solid rgba(201, 160, 61, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .search-wrapper input {
+            background: transparent;
+            border: none;
+            width: 100%;
+            font-size: 1rem;
+            color: white;
+            outline: none;
+        }
+        .search-wrapper input::placeholder { color: #6B6C7A; }
+
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 2.2rem;
+        }
+        .cat-btn {
+            background: rgba(30, 32, 40, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(201, 160, 61, 0.2);
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #D1D2DB;
+        }
+        .cat-btn.active-cat {
+            background: #C9A03D;
+            color: #0F0F12;
+            border-color: #C9A03D;
+            font-weight: 700;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 3rem;
+        }
+        .menu-card {
+            background: rgba(18, 20, 28, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 160, 61, 0.2);
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .menu-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(201, 160, 61, 0.6);
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.5);
+        }
+        .card-img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .menu-card:hover .card-img { transform: scale(1.02); }
+        .card-content {
+            padding: 1.2rem 1.2rem 1.5rem;
+        }
+        .dish-name {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            font-family: 'Playfair Display', serif;
+        }
+        .dish-desc {
+            font-size: 0.8rem;
+            color: #A5A6B0;
+            margin-bottom: 1rem;
+        }
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .price {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #F2C94C;
+        }
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 5px 12px;
+            border-radius: 50px;
+        }
+        .qty-btn {
+            background: rgba(201, 160, 61, 0.2);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #F2C94C;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .qty-btn:hover {
+            background: #C9A03D;
+            color: #0F0F12;
+        }
+
+        /* Floating Cart */
+        .cart-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 99;
+        }
+        .cart-btn {
+            background: linear-gradient(145deg, #C9A03D, #A67C2E);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s;
+        }
+        .cart-btn:hover { transform: scale(1.05); }
+        .cart-count-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #E25822;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 13px;
+            border: 2px solid #0C0C10;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(14px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+            padding: 1rem;
+        }
+        .modal-overlay.open {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modal-container {
+            background: #12141C;
+            max-width: 580px;
+            width: 100%;
+            border-radius: 40px;
+            border: 1px solid rgba(201, 160, 61, 0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 1.6rem;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.6);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #2A2C34;
+            padding-bottom: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .modal-header h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #F3E7C0, #C9A03D);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-family: 'Playfair Display', serif;
+        }
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 30px;
+            color: #aaa;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .close-modal:hover { color: #C9A03D; }
+
+        /* ========== PREMIUM INQUIRY FORM (EXACT STYLE FROM REFERENCE) ========== */
+        .premium-inquiry-card {
+            background: linear-gradient(145deg, rgba(25, 28, 36, 0.9), rgba(18, 20, 28, 0.95));
+            border-radius: 32px;
+            padding: 1.8rem;
+            margin: 1rem 0 1.2rem;
+            border: 1px solid rgba(201, 160, 61, 0.35);
+            box-shadow: 0 15px 30px -10px rgba(0,0,0,0.3);
+        }
+        .inquiry-badge {
+            display: inline-block;
+            background: rgba(201, 160, 61, 0.15);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #F2C94C;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
+        }
+        .form-row {
+            margin-bottom: 1.2rem;
+        }
+        .form-row label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #CBCBD4;
+            margin-bottom: 6px;
+        }
+        .form-row input, .form-row select, .form-row textarea {
+            width: 100%;
+            background: #1A1C26;
+            border: 1.5px solid #2D2F3A;
+            border-radius: 24px;
+            padding: 12px 18px;
+            color: #F0F0F5;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.25s;
+        }
+        .form-row input:focus, .form-row select:focus, .form-row textarea:focus {
+            border-color: #C9A03D;
+            box-shadow: 0 0 0 3px rgba(201, 160, 61, 0.2);
+        }
+        .double-row {
+            display: flex;
+            gap: 15px;
+        }
+        .double-row > div {
+            flex: 1;
+        }
+        .whatsapp-premium-btn {
+            background: linear-gradient(95deg, #25D366, #128C7E);
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            margin-top: 18px;
+            transition: all 0.25s;
+            box-shadow: 0 6px 14px rgba(37, 211, 102, 0.2);
+        }
+        .whatsapp-premium-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+        .cart-items-list {
+            max-height: 220px;
+            overflow-y: auto;
+            margin-bottom: 0.8rem;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #2A2C34;
+            font-size: 0.9rem;
+        }
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            padding-top: 10px;
+            border-top: 2px solid #C9A03D;
+        }
+        .clear-cart-btn {
+            background: transparent;
+            border: 1px solid #4A4C58;
+            padding: 10px;
+            border-radius: 40px;
+            color: #B0B1C0;
+            width: 100%;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .clear-cart-btn:hover {
+            border-color: #C9A03D;
+            color: #C9A03D;
+        }
+        .map-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .map-link a {
+            background: rgba(201, 160, 61, 0.12);
+            backdrop-filter: blur(8px);
+            padding: 8px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #F2C94C;
+            font-weight: 500;
+            display: inline-flex;
+            gap: 8px;
+            border: 1px solid rgba(201, 160, 61, 0.3);
+            transition: 0.2s;
+        }
+        .map-link a:hover {
+            background: #C9A03D;
+            color: #0C0C10;
+        }
+        @media (max-width: 550px) {
+            .brand-pill { font-size: 1rem; padding: 0.5rem 1.2rem; }
+            .hero-title { font-size: 2rem; }
+            .double-row { flex-direction: column; gap: 12px; }
+            .modal-container { padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="brand-header">
+        <div class="brand-logos">
+            <div class="brand-pill maa-saheb active-brand" data-brand="maa">Maa Saheb Events</div>
+            <div class="brand-pill ganu-kitchen" data-brand="ganu">Ganu's Kitchen</div>
+        </div>
+        <div class="hero-title">Book Your Premium Catering</div>
+        <div class="hero-sub">Fill details & get instant quote on WhatsApp</div>
+    </div>
+
+    <div class="search-wrapper">
+        <span>🔍</span>
+        <input type="text" id="searchInput" placeholder="Search dishes...">
+    </div>
+
+    <div class="category-tabs" id="categoryTabs"></div>
+    <div class="menu-grid" id="menuGrid"></div>
+
+    <div class="map-link">
+        <a href="https://maps.app.goo.gl/xMFkkZYjs1RjSFkp7" target="_blank">📍 Open in Google Maps</a>
+    </div>
+</div>
+
+<div class="cart-float">
+    <button class="cart-btn" id="cartFloatBtn">
+        🛒
+        <span class="cart-count-badge" id="cartBadge">0</span>
+    </button>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3>📋 Your Order</h3>
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+        </div>
+        <div id="cartItemsList" class="cart-items-list"></div>
+        <div class="total-row">
+            <span>Total Amount</span>
+            <span id="cartTotal">₹0</span>
+        </div>
+
+        <!-- PREMIUM INQUIRY FORM - EXACT MATCH REFERENCE STYLE -->
+        <div class="premium-inquiry-card">
+            <div class="inquiry-badge">✨ GET INSTANT QUOTE ✨</div>
+            
+            <div class="form-row">
+                <label>👤 Full Name</label>
+                <input type="text" id="fullName" placeholder="Enter your full name">
+            </div>
+            <div class="form-row">
+                <label>📞 Phone Number</label>
+                <input type="tel" id="phoneNumber" placeholder="Your active WhatsApp number">
+            </div>
+            <div class="double-row">
+                <div class="form-row">
+                    <label>🎉 Event Type</label>
+                    <select id="eventType">
+                        <option value="">Select Event</option>
+                        <option>Wedding</option><option>Birthday</option><option>Corporate</option>
+                        <option>Engagement</option><option>Housewarming</option><option>Other</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label>👥 Number of Guests</label>
+                    <input type="number" id="guestCount" placeholder="e.g., 150">
+                </div>
+            </div>
+            <div class="double-row">
+                <div class="form-row">
+                    <label>📅 Event Date</label>
+                    <input type="text" id="eventDate" placeholder="mm/dd/yyyy">
+                </div>
+                <div class="form-row">
+                    <label>📍 Event Location</label>
+                    <input type="text" id="eventLocation" placeholder="City / Venue">
+                </div>
+            </div>
+            <div class="form-row">
+                <label>🍽️ Catering Type</label>
+                <select id="cateringType">
+                    <option value="">Select Catering</option>
+                    <option>Veg Only</option><option>Non-Veg Only</option><option>Both (Veg + Non-Veg)</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>💬 Special Requirements</label>
+                <textarea id="specialReq" rows="2" placeholder="Menu preferences, dietary needs..."></textarea>
+            </div>
+            <button class="whatsapp-premium-btn" id="sendInquiryBtn">
+                📲 Send Inquiry on WhatsApp
+            </button>
+        </div>
+        <button class="clear-cart-btn" id="clearCartBtn">Clear Cart</button>
+    </div>
+</div>
+
+<script>
+    // ==================== MENU DATA ====================
+    const vegMenu = [
+        {id:1, cat:"BASMATI KA KHAZANA", name:"Veg Pulao", price:"180/-", desc:"Aromatic basmati rice", img:"img/veg_pulao.jpeg"},
+        {id:2, cat:"BASMATI KA KHAZANA", name:"Green Peas Pulao", price:"180/-", desc:"Fresh peas rice", img:"img/green_peas_pulao.jpeg"},
+        {id:3, cat:"BASMATI KA KHAZANA", name:"Veg Biryani", price:"190/-", desc:"Spiced vegetable biryani", img:"img/veg_biryani.jpeg"},
+        {id:4, cat:"KOFTA", name:"Malai Kofta", price:"190/-", desc:"Creamy dumplings", img:"img/malai_kofta.jpeg"},
+        {id:5, cat:"DAL", name:"Dal Tadka", price:"110/-", desc:"Tempered lentils", img:"img/dal_tadka.jpeg"},
+        {id:6, cat:"TANDOORI ROTI", name:"Garlic Naan", price:"40/-", desc:"Naan with garlic", img:"img/garlic_naan.jpeg"},
+        {id:7, cat:"TANDOORIS", name:"Paneer Tikka", price:"200/-", desc:"Grilled paneer", img:"img/paneer_tikka.jpeg"},
+        {id:8, cat:"VEGETABLE STARTERS", name:"Paneer 65", price:"190/-", desc:"Spicy fried paneer", img:"img/paneer_65.jpeg"},
+        {id:9, cat:"VEG RICE", name:"Vegetable Fried Rice", price:"140/-", desc:"Chinese veg rice", img:"img/vegetable_fried_rice.jpeg"},
+        {id:10, cat:"SOUPS", name:"Veg Sweet Corn Soup", price:"120/-", desc:"Sweet corn soup", img:"img/veg_sweet_corn_soup.jpeg"},
+        {id:11, cat:"DESSERT", name:"Gulab Jamun", price:"70/-", desc:"Soft milk dumplings", img:"img/gulab_jamun.jpg"}
+    ];
+    const nonVegMenu = [
+        {id:101, cat:"BASMATI KA KHAZANA", name:"Chicken Biryani", price:"190/-", desc:"Classic chicken biryani", img:"img/chicken_biryani.jpeg"},
+        {id:102, cat:"BASMATI KA KHAZANA", name:"Mutton Biryani", price:"220/-", desc:"Tender mutton biryani", img:"img/mutton_biryani.jpeg"},
+        {id:103, cat:"CHICKEN GRAVY", name:"Chicken Chilly", price:"180/-", desc:"Spicy indo-chinese", img:"img/chicken_chilly_dry.jpeg"},
+        {id:104, cat:"FRIED RICE", name:"Chicken Fried Rice", price:"160/-", desc:"Egg chicken fried rice", img:"img/chicken_fried_rice.jpeg"},
+        {id:105, cat:"NOODLES", name:"Chicken Hakka Noodles", price:"170/-", desc:"Wok tossed noodles", img:"img/chicken_hakka_noodles.jpeg"},
+        {id:106, cat:"TANDOORIS", name:"Tandoori Chicken (Half)", price:"170/-", desc:"Smoky tandoori", img:"img/tandoori_chicken_half.jpeg"},
+        {id:107, cat:"TANDOORIS", name:"Chicken Tikka", price:"180/-", desc:"Boneless pieces", img:"img/chicken_tikka.jpeg"},
+        {id:108, cat:"CHINESE STARTERS", name:"Chicken Lollypop", price:"160/-", desc:"Crispy wings", img:"img/chicken_lollypop_full.jpeg"},
+        {id:109, cat:"DESSERT", name:"Sizzling Brownie", price:"190/-", desc:"Brownie with icecream", img:"img/sizzling_brownie.jpg"}
+    ];
+
+    let currentBrand = "maa";
+    let currentCategory = "all";
+    let cart = [];
+
+    function getCurrentItems() { return currentBrand === "maa" ? vegMenu : nonVegMenu; }
+    function getUniqueCategories() {
+        const cats = new Set(getCurrentItems().map(i => i.cat));
+        return Array.from(cats).sort();
+    }
+    function renderCategories() {
+        const cats = getUniqueCategories();
+        const container = document.getElementById("categoryTabs");
+        let html = `<div class="cat-btn ${currentCategory === 'all' ? 'active-cat' : ''}" data-cat="all">🍽️ All</div>`;
+        cats.forEach(c => { html += `<div class="cat-btn ${currentCategory === c ? 'active-cat' : ''}" data-cat="${c}">${c}</div>`; });
+        container.innerHTML = html;
+        document.querySelectorAll('.cat-btn').forEach(btn => btn.addEventListener('click', () => { currentCategory = btn.dataset.cat; renderCategories(); renderMenu(); }));
+    }
+    function renderMenu() {
+        let items = getCurrentItems();
+        if(currentCategory !== "all") items = items.filter(i => i.cat === currentCategory);
+        const search = document.getElementById('searchInput').value.toLowerCase();
+        if(search) items = items.filter(i => i.name.toLowerCase().includes(search) || i.desc.toLowerCase().includes(search));
+        const grid = document.getElementById("menuGrid");
+        if(items.length === 0) { grid.innerHTML = '<div style="grid-column:1/-1; text-align:center;">No items found</div>'; return; }
+        grid.innerHTML = items.map(item => {
+            const cartItem = cart.find(c => c.id === item.id);
+            const qty = cartItem ? cartItem.quantity : 0;
+            return `<div class="menu-card"><img class="card-img" src="${item.img}" onerror="this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22300%22%20height%3D%22200%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23333%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%23aaa%22%3ENo%20Image%3C%2Ftext%3E%3C%2Fsvg%3E'"><div class="card-content"><div class="dish-name">${item.name}</div><div class="dish-desc">${item.desc}</div><div class="price-row"><span class="price">${item.price}</span><div class="qty-control"><button class="qty-btn decr" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">−</button><span class="qty-num">${qty}</span><button class="qty-btn incr" data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">+</button></div></div></div></div>`;
+        }).join('');
+        attachEvents();
+    }
+    function attachEvents() {
+        document.querySelectorAll('.incr').forEach(btn => btn.onclick = () => addToCart(parseInt(btn.dataset.id), btn.dataset.name, btn.dataset.price));
+        document.querySelectorAll('.decr').forEach(btn => btn.onclick = () => removeFromCartById(parseInt(btn.dataset.id)));
+    }
+    function addToCart(id, name, priceStr) { let existing = cart.find(i => i.id === id); if(existing) existing.quantity++; else cart.push({ id, name, price: priceStr, quantity: 1 }); updateCartUI(); renderMenu(); }
+    function removeFromCartById(id) { const idx = cart.findIndex(i => i.id === id); if(idx !== -1) { if(cart[idx].quantity > 1) cart[idx].quantity--; else cart.splice(idx,1); } updateCartUI(); renderMenu(); }
+    function updateCartUI() {
+        const totalQty = cart.reduce((s,i)=>s+i.quantity,0);
+        document.getElementById('cartBadge').innerText = totalQty;
+        const container = document.getElementById('cartItemsList');
+        if(cart.length === 0) { container.innerHTML = '<div style="padding:12px; text-align:center;">Cart empty</div>'; document.getElementById('cartTotal').innerText = '₹0'; return; }
+        let html = '', total = 0;
+        cart.forEach(i => { let p = parseInt(i.price.replace('₹','')); total += p * i.quantity; html += `<div class="cart-item"><span>${i.name} x${i.quantity}</span><span>₹${p * i.quantity}</span></div>`; });
+        container.innerHTML = html; document.getElementById('cartTotal').innerHTML = `₹${total}`;
+    }
+    function setBrand(brand) {
+        currentBrand = brand; currentCategory = "all";
+        document.querySelectorAll('.brand-pill').forEach(b => b.classList.remove('active-brand'));
+        if(brand === 'maa') document.querySelector('.brand-pill.maa-saheb').classList.add('active-brand');
+        else document.querySelector('.brand-pill.ganu-kitchen').classList.add('active-brand');
+        renderCategories(); renderMenu();
+    }
+    function buildInquiryMessage() {
+        let msg = "*✨ PREMIUM CATERING INQUIRY ✨*\n\n";
+        const name = document.getElementById('fullName').value.trim();
+        const phone = document.getElementById('phoneNumber').value.trim();
+        const eventType = document.getElementById('eventType').value;
+        const guests = document.getElementById('guestCount').value.trim();
+        const date = document.getElementById('eventDate').value.trim();
+        const location = document.getElementById('eventLocation').value.trim();
+        const catering = document.getElementById('cateringType').value;
+        const special = document.getElementById('specialReq').value.trim();
+        if(name) msg += `👤 Name: ${name}\n`;
+        if(phone) msg += `📞 Phone: ${phone}\n`;
+        if(eventType) msg += `🎉 Event: ${eventType}\n`;
+        if(guests) msg += `👥 Guests: ${guests}\n`;
+        if(date) msg += `📅 Date: ${date}\n`;
+        if(location) msg += `📍 Location: ${location}\n`;
+        if(catering) msg += `🍽️ Catering: ${catering}\n`;
+        if(special) msg += `💬 Special: ${special}\n`;
+        if(cart.length > 0) { msg += `\n*🛒 ORDER SUMMARY:*\n`; let total=0; cart.forEach(i=>{let p=parseInt(i.price.replace('₹','')); total+=p*i.quantity; msg+=`• ${i.name} x${i.quantity} = ₹${p*i.quantity}\n`;}); msg+=`\n💰 Total: ₹${total}`; }
+        else { msg += `\n*No items in cart, only catering inquiry.*`; }
+        msg += `\n\n_Thank you! We'll respond shortly._`;
+        return msg;
+    }
+    document.getElementById('sendInquiryBtn').onclick = () => { window.open(`https://wa.me/9284969878?text=${encodeURIComponent(buildInquiryMessage())}`, '_blank'); };
+    document.getElementById('clearCartBtn').onclick = () => { cart = []; updateCartUI(); renderMenu(); };
+    document.querySelectorAll('.brand-pill').forEach(btn => btn.onclick = () => setBrand(btn.dataset.brand));
+    document.getElementById('searchInput').addEventListener('input', () => renderMenu());
+    const modal = document.getElementById('modalOverlay');
+    document.getElementById('cartFloatBtn').onclick = () => { modal.classList.add('open'); updateCartUI(); };
+    document.getElementById('closeModalBtn').onclick = () => modal.classList.remove('open');
+    modal.onclick = (e) => { if(e.target === modal) modal.classList.remove('open'); };
+    setBrand('maa'); updateCartUI();
+</script>
+</body>
+</html>
