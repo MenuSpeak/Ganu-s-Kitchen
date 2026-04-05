@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Maa Saheb Events | Ganu's Kitchen - Premium Catering</title>
+    <title>Maa Saheb Events | Ganu's Kitchen - Premium Catering & Ceremonial Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -20,10 +20,13 @@
             min-height: 100vh;
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #23232B; border-radius: 10px; }
         ::-webkit-scrollbar-thumb { background: #C9A03D; border-radius: 10px; }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         .container {
             max-width: 1300px;
@@ -84,6 +87,41 @@
             color: #A0A1B0;
             font-weight: 500;
             letter-spacing: 0.5px;
+        }
+
+        /* ========== NAVIGATION BUTTON (NEW) ========== */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0 20px;
+            flex-wrap: wrap;
+        }
+        .nav-scroll-btn {
+            background: linear-gradient(135deg, rgba(201, 160, 61, 0.15), rgba(201, 160, 61, 0.05));
+            backdrop-filter: blur(12px);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #F2C94C;
+            border: 1.5px solid rgba(201, 160, 61, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-scroll-btn:hover {
+            background: linear-gradient(135deg, #C9A03D, #A67C2E);
+            color: #0C0C10;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(201, 160, 61, 0.3);
+            border-color: transparent;
+        }
+        .nav-scroll-btn i {
+            font-size: 1.1rem;
         }
 
         /* Search */
@@ -211,6 +249,82 @@
             color: #0F0F12;
         }
 
+        /* ========== CEREMONIAL SERVICES SECTION ========== */
+        .ceremonial-section {
+            margin: 3rem 0 4rem;
+            background: linear-gradient(145deg, rgba(20, 22, 30, 0.7), rgba(12, 14, 20, 0.8));
+            border-radius: 48px;
+            padding: 2rem 2rem 2.5rem;
+            border: 1px solid rgba(201, 160, 61, 0.25);
+            backdrop-filter: blur(8px);
+            scroll-margin-top: 80px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #F2C94C;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #B0B1C0;
+            margin-bottom: 2.5rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 28px;
+            padding: 1.5rem;
+            border: 1px solid rgba(201, 160, 61, 0.2);
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            border-color: rgba(201, 160, 61, 0.6);
+            transform: translateY(-5px);
+        }
+        .service-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #F2C94C;
+            font-family: 'Playfair Display', serif;
+        }
+        .service-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .service-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed rgba(201, 160, 61, 0.2);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+        .badge-icon {
+            color: #C9A03D;
+            font-weight: bold;
+        }
+
         /* Floating Cart */
         .cart-float {
             position: fixed;
@@ -309,7 +423,7 @@
         }
         .close-modal:hover { color: #C9A03D; }
 
-        /* ========== PREMIUM INQUIRY FORM (EXACT STYLE FROM REFERENCE) ========== */
+        /* Premium Inquiry Form */
         .premium-inquiry-card {
             background: linear-gradient(145deg, rgba(25, 28, 36, 0.9), rgba(18, 20, 28, 0.95));
             border-radius: 32px;
@@ -443,11 +557,38 @@
             background: #C9A03D;
             color: #0C0C10;
         }
+
+        /* Scroll to top button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            background: rgba(201, 160, 61, 0.2);
+            backdrop-filter: blur(12px);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1px solid rgba(201, 160, 61, 0.4);
+            transition: all 0.3s;
+            z-index: 98;
+            font-size: 1.5rem;
+        }
+        .scroll-top-btn:hover {
+            background: #C9A03D;
+            transform: translateY(-3px);
+        }
+
         @media (max-width: 550px) {
             .brand-pill { font-size: 1rem; padding: 0.5rem 1.2rem; }
             .hero-title { font-size: 2rem; }
             .double-row { flex-direction: column; gap: 12px; }
             .modal-container { padding: 1.2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .nav-scroll-btn { padding: 8px 20px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -462,6 +603,13 @@
         <div class="hero-sub">Fill details & get instant quote on WhatsApp</div>
     </div>
 
+    <!-- ========== NEW NAVIGATION BUTTON ========== -->
+    <div class="nav-buttons">
+        <button class="nav-scroll-btn" id="scrollToCeremonialBtn">
+            <span>📜</span> Ceremonial Services
+        </button>
+    </div>
+
     <div class="search-wrapper">
         <span>🔍</span>
         <input type="text" id="searchInput" placeholder="Search dishes...">
@@ -470,9 +618,83 @@
     <div class="category-tabs" id="categoryTabs"></div>
     <div class="menu-grid" id="menuGrid"></div>
 
+    <!-- ========== CEREMONIAL SERVICES SECTION ========== -->
+    <div class="ceremonial-section" id="ceremonialSection">
+        <div class="section-title">
+            <span>📜</span> Ceremonial Services <span>🎊</span>
+        </div>
+        <div class="section-subtitle">Complete Wedding & Event Solutions | Traditional to Digital</div>
+        
+        <div class="services-grid">
+            <!-- Traditional Services -->
+            <div class="service-card">
+                <div class="service-icon">✦</div>
+                <div class="service-title">Traditional Services (विधी)</div>
+                <ul class="service-list">
+                    <li><span class="badge-icon">•</span> कुंकुम तिलक समारंभ</li>
+                    <li><span class="badge-icon">•</span> साखरपुडा (Engagement Rituals)</li>
+                    <li><span class="badge-icon">•</span> हळदी – उटणे सोहळा</li>
+                    <li><span class="badge-icon">•</span> लग्न विधी</li>
+                    <li><span class="badge-icon">•</span> गृहप्रवेश</li>
+                </ul>
+            </div>
+            
+            <!-- Band & Music -->
+            <div class="service-card">
+                <div class="service-icon">🎺</div>
+                <div class="service-title">Band & Music</div>
+                <ul class="service-list">
+                    <li><span class="badge-icon">•</span> Royal Wedding Brass Band</li>
+                    <li><span class="badge-icon">•</span> Dhol Tasha Pathak</li>
+                    <li><span class="badge-icon">•</span> Live Shehnai & Classical</li>
+                    <li><span class="badge-icon">•</span> Premium DJ & Lighting</li>
+                </ul>
+            </div>
+            
+            <!-- Digital Services -->
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <div class="service-title">Digital Services</div>
+                <ul class="service-list">
+                    <li><span class="badge-icon">•</span> Wedding Photography & Cinematography</li>
+                    <li><span class="badge-icon">•</span> Live Streaming</li>
+                    <li><span class="badge-icon">•</span> Custom Wedding Website</li>
+                </ul>
+            </div>
+            
+            <!-- Horse & Procession -->
+            <div class="service-card">
+                <div class="service-icon">🐎</div>
+                <div class="service-title">Horse & Procession</div>
+                <ul class="service-list">
+                    <li><span class="badge-icon">•</span> Royal Ghodi Sajavat</li>
+                    <li><span class="badge-icon">•</span> Wedding Chadhra & Sword</li>
+                    <li><span class="badge-icon">•</span> Baraat Procession Management</li>
+                </ul>
+            </div>
+            
+            <!-- Catering Packages -->
+            <div class="service-card">
+                <div class="service-icon">📦</div>
+                <div class="service-title">Catering Packages</div>
+                <ul class="service-list">
+                    <li><span class="badge-icon">•</span> Platinum Maharaja Thali – 9 Course</li>
+                    <li><span class="badge-icon">•</span> Gold Wedding Buffet</li>
+                    <li><span class="badge-icon">•</span> Silver Traditional Meal</li>
+                    <li><span class="badge-icon">•</span> Live Counters</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div class="map-link">
         <a href="https://maps.app.goo.gl/xMFkkZYjs1RjSFkp7" target="_blank">📍 Open in Google Maps</a>
     </div>
+</div>
+
+<!-- Scroll to Top Button -->
+<div class="scroll-top-btn" id="scrollTopBtn">
+    ↑
 </div>
 
 <div class="cart-float">
@@ -494,7 +716,6 @@
             <span id="cartTotal">₹0</span>
         </div>
 
-        <!-- PREMIUM INQUIRY FORM - EXACT MATCH REFERENCE STYLE -->
         <div class="premium-inquiry-card">
             <div class="inquiry-badge">✨ GET INSTANT QUOTE ✨</div>
             
@@ -552,425 +773,426 @@
 <script>
     // ==================== MENU DATA ====================
     const vegMenu = [
-  {"id":1, "cat":"BREAKFAST", "name":"पोहे / Poha", "desc":"Traditional Indian breakfast", "img":"img/poha.jpeg"},
-  {"id":2, "cat":"BREAKFAST", "name":"उपमा / Upma", "desc":"Savory semolina dish", "img":"img/upma.jpeg"},
-  {"id":3, "cat":"BREAKFAST", "name":"खिचडी / Khichdi", "desc":"Rice and lentil dish", "img":"img/khichdi.jpeg"},
-  {"id":4, "cat":"BREAKFAST", "name":"समोसा / Samosa", "desc":"Crispy savory pastry", "img":"img/samosa.jpeg"},
-  {"id":5, "cat":"BREAKFAST", "name":"इतर नाश्ता / Other Breakfast Items", "desc":"Various breakfast snacks", "img":"img/other_breakfast.jpeg"},
-  {"id":6, "cat":"HOT BEVERAGES", "name":"चहा / Tea", "desc":"Hot brewed tea", "img":"img/tea.jpeg"},
-  {"id":7, "cat":"HOT BEVERAGES", "name":"कॉफी / Coffee", "desc":"Hot brewed coffee", "img":"img/coffee.jpeg"},
-  {"id":8, "cat":"HOT BEVERAGES", "name":"मसाला दूध / Masala Milk", "desc":"Spiced hot milk", "img":"img/masala_milk.jpeg"},
-  {"id":9, "cat":"COLD BEVERAGES", "name":"सरबत (सर्व फ्लेवर) / Sharbat (All Flavors)", "desc":"Sweet fruit drink", "img":"img/sharbat.jpeg"},
-  {"id":10, "cat":"COLD BEVERAGES", "name":"कैरी पन्हे / Kairi Panha", "desc":"Raw mango drink", "img":"img/kairi_panha.jpeg"},
-  {"id":11, "cat":"COLD BEVERAGES", "name":"कोल्ड ड्रिंक्स / Cold Drinks", "desc":"Pepsi, Thums Up, Slice, Maaza etc.", "img":"img/cold_drinks.jpeg"},
-  {"id":12, "cat":"THALI", "name":"साधी थाळी / Standard Thali", "desc":"Plain rice, Varan, Masale Bhat, Aloo Matar, Puri, Jalebi, Mattha, Papad, Chutney", "img":"img/standard_thali.jpeg"},
-  {"id":13, "cat":"THALI", "name":"डिलक्स थाळी / Deluxe Thali", "desc":"Jeera Rice, Dal Tadka, Veg Pulao, Matar Paneer, Puri, Gulab Jamun, Pickle, Papad, Kanda Bhaji", "img":"img/deluxe_thali.jpeg"},
-  {"id":14, "cat":"THALI", "name":"प्रीमियम थाळी / Premium Thali", "desc":"Jeera Rice, Dal Tadka, Veg Biryani, Paneer Tikka, Puri, Phulke, Rabdi, Papad, Pickle, Salad, Batata Vada", "img":"img/premium_thali.jpeg"},
-  {"id":15, "cat":"THALI", "name":"आईस्क्रीम आणि पान / Ice Cream & Paan", "desc":"Dessert and mouth freshener", "img":"img/ice_cream_paan.jpeg"},
-  {"id":16, "cat":"STARTERS", "name":"व्हेज स्टार्टर / Veg Starter", "desc":"Assorted veg starters", "img":"img/veg_starter.jpeg"},
-  {"id":17, "cat":"STARTERS", "name":"व्हेज मंचुरियन / Veg Manchurian", "desc":"Indo-chinese fried veg balls", "img":"img/veg_manchurian.jpeg"},
-  {"id":18, "cat":"STARTERS", "name":"स्प्रिंग रोल / Spring Roll", "desc":"Crispy stuffed rolls", "img":"img/spring_roll.jpeg"},
-  {"id":19, "cat":"STARTERS", "name":"फ्लॉवर लॉलीपॉप / Flower Lollipop", "desc":"Crispy fried cauliflower", "img":"img/flower_lollipop.jpeg"},
-  {"id":20, "cat":"STARTERS", "name":"मंचुरीयन सूप / Manchurian Soup", "desc":"Spicy chinese soup", "img":"img/manchurian_soup.jpeg"},
-  {"id":21, "cat":"STARTERS", "name":"टोमॅटो सूप / Tomato Soup", "desc":"Warm tomato soup", "img":"img/tomato_soup.jpeg"},
-  {"id":22, "cat":"STARTERS", "name":"कटलेट / Cutlet", "desc":"Crispy veg patty", "img":"img/cutlet.jpeg"},
-  {"id":23, "cat":"RICE", "name":"प्लेन राईस (कोलम) / Plain Rice (Kolam)", "desc":"Steamed kolam rice", "img":"img/plain_rice_kolam.jpeg"},
-  {"id":24, "cat":"RICE", "name":"प्लेन राईस (बासमती) / Plain Rice (Basmati)", "desc":"Steamed basmati rice", "img":"img/plain_rice_basmati.jpeg"},
-  {"id":25, "cat":"RICE", "name":"व्हेज बिर्याणी / Veg Biryani", "desc":"Spiced vegetable biryani", "img":"img/veg_biryani.jpeg"},
-  {"id":26, "cat":"RICE", "name":"व्हेज पुलाव / Veg Pulao", "desc":"Aromatic basmati rice", "img":"img/veg_pulao.jpeg"},
-  {"id":27, "cat":"RICE", "name":"जिरा राईस (कोलम) / Jeera Rice (Kolam)", "desc":"Cumin flavored kolam rice", "img":"img/jeera_rice_kolam.jpeg"},
-  {"id":28, "cat":"RICE", "name":"जिरा राईस (बासमती) / Jeera Rice (Basmati)", "desc":"Cumin flavored basmati rice", "img":"img/jeera_rice_basmati.jpeg"},
-  {"id":29, "cat":"RICE", "name":"मटर पुलाव / Matar Pulao", "desc":"Green peas rice", "img":"img/matar_pulao.jpeg"},
-  {"id":30, "cat":"RICE", "name":"दालचा राईस / Dalcha Rice", "desc":"Rice with dalcha", "img":"img/dalcha_rice.jpeg"},
-  {"id":31, "cat":"RICE", "name":"मसाले भात / Masala Bhat", "desc":"Spiced maharashtrian rice", "img":"img/masala_bhat.jpeg"},
-  {"id":32, "cat":"DAL", "name":"ब्राम्हणी डाळ / Bramhani Dal", "desc":"Traditional sweet-spicy dal", "img":"img/bramhani_dal.jpeg"},
-  {"id":33, "cat":"DAL", "name":"साधं वरण / Sadha Varan", "desc":"Plain cooked lentils", "img":"img/sadha_varan.jpeg"},
-  {"id":34, "cat":"DAL", "name":"दाल तडका / Dal Tadka", "desc":"Tempered lentils", "img":"img/dal_tadka.jpeg"},
-  {"id":35, "cat":"DAL", "name":"दाल फ्राय / Dal Fry", "desc":"Spiced fried lentils", "img":"img/dal_fry.jpeg"},
-  {"id":36, "cat":"DAL", "name":"सांबर / Sambar", "desc":"South Indian lentil stew", "img":"img/sambar.jpeg"},
-  {"id":37, "cat":"DAL", "name":"दालचा व्हेज / Dalcha Veg", "desc":"Lentil and vegetable stew", "img":"img/dalcha_veg.jpeg"},
-  {"id":38, "cat":"VEG GRAVY", "name":"शाक भाजी / Shak Bhaji", "desc":"Mixed vegetable curry", "img":"img/shak_bhaji.jpeg"},
-  {"id":39, "cat":"VEG GRAVY", "name":"आलू मटर / Aloo Matar", "desc":"Potato and peas curry", "img":"img/aloo_matar.jpeg"},
-  {"id":40, "cat":"VEG GRAVY", "name":"छोले / Chole", "desc":"Spicy chickpea curry", "img":"img/chole.jpeg"},
-  {"id":41, "cat":"VEG GRAVY", "name":"राजमा / Rajma", "desc":"Kidney beans curry", "img":"img/rajma.jpeg"},
-  {"id":42, "cat":"VEG GRAVY", "name":"मटर पनीर / Matar Paneer", "desc":"Peas and paneer gravy", "img":"img/matar_paneer.jpeg"},
-  {"id":43, "cat":"VEG GRAVY", "name":"पनीर टिक्का / Paneer Tikka", "desc":"Grilled paneer in gravy", "img":"img/paneer_tikka.jpeg"},
-  {"id":44, "cat":"VEG GRAVY", "name":"व्हेज मराठा / Veg Maratha", "desc":"Spicy maharashtrian curry", "img":"img/veg_maratha.jpeg"},
-  {"id":45, "cat":"VEG GRAVY", "name":"मिक्स मराठा / Mix Maratha", "desc":"Mixed veg in spicy gravy", "img":"img/mix_maratha.jpeg"},
-  {"id":46, "cat":"VEG GRAVY", "name":"डबल बीन / Double Bean", "desc":"Double bean spicy gravy", "img":"img/double_bean.jpeg"},
-  {"id":47, "cat":"VEG GRAVY", "name":"पालक पनीर / Palak Paneer", "desc":"Paneer in spinach gravy", "img":"img/palak_paneer.jpeg"},
-  {"id":48, "cat":"VEG GRAVY", "name":"बैंगन मसाला / Baingan Masala", "desc":"Spicy eggplant curry", "img":"img/baingan_masala.jpeg"},
-  {"id":49, "cat":"VEG GRAVY", "name":"अळू भाजी / Alu Bhaji", "desc":"Potato/Taro curry", "img":"img/alu_bhaji.jpeg"},
-  {"id":50, "cat":"VEG GRAVY", "name":"व्हेज भुना / Veg Bhuna", "desc":"Roasted mixed veg gravy", "img":"img/veg_bhuna.jpeg"},
-  {"id":51, "cat":"VEG GRAVY", "name":"मटकी / Matki", "desc":"Moth bean gravy", "img":"img/matki.jpeg"},
-  {"id":52, "cat":"VEG GRAVY", "name":"चवळी बटाटा / Chawali Batata", "desc":"Black-eyed peas & potato", "img":"img/chawali_batata.jpeg"},
-  {"id":53, "cat":"VEG DRY", "name":"दोसा भाजी / Dosa Bhaji", "desc":"Dry potato sabzi", "img":"img/dosa_bhaji.jpeg"},
-  {"id":54, "cat":"VEG DRY", "name":"भेंडी फ्राय / Bhendi Fry", "desc":"Fried okra", "img":"img/bhendi_fry.jpeg"},
-  {"id":55, "cat":"VEG DRY", "name":"बैंगन मसाला (सुकी) / Baingan Masala (Dry)", "desc":"Dry spicy eggplant", "img":"img/baingan_masala_dry.jpeg"},
-  {"id":56, "cat":"VEG DRY", "name":"चना मसाला / Chana Masala", "desc":"Dry spicy chickpeas", "img":"img/chana_masala.jpeg"},
-  {"id":57, "cat":"VEG DRY", "name":"चना फ्राय / Chana Fry", "desc":"Fried spiced chickpeas", "img":"img/chana_fry.jpeg"},
-  {"id":58, "cat":"VEG DRY", "name":"तवा भाजी / Tawa Bhaji", "desc":"Pan fried mixed veggies", "img":"img/tawa_bhaji.jpeg"},
-  {"id":59, "cat":"VEG DRY", "name":"काजू मसाला / Kaju Masala", "desc":"Cashew dry sabzi", "img":"img/kaju_masala.jpeg"},
-  {"id":60, "cat":"VEG DRY", "name":"पनीर मसाला / Paneer Masala", "desc":"Spicy paneer dry", "img":"img/paneer_masala.jpeg"},
-  {"id":61, "cat":"VEG DRY", "name":"मटार मसाला / Matar Masala", "desc":"Green peas dry sabzi", "img":"img/matar_masala.jpeg"},
-  {"id":62, "cat":"VEG DRY", "name":"राजमा मसाला / Rajma Masala", "desc":"Kidney beans dry sabzi", "img":"img/rajma_masala.jpeg"},
-  {"id":63, "cat":"VEG DRY", "name":"चवळी मसाला / Chawali Masala", "desc":"Black-eyed peas dry sabzi", "img":"img/chawali_masala.jpeg"},
-  {"id":64, "cat":"VEG DRY", "name":"कोबी / Kobi", "desc":"Cabbage sabzi", "img":"img/kobi.jpeg"},
-  {"id":65, "cat":"VEG DRY", "name":"मटकी उसळ / Matki Usal", "desc":"Sprouted moth beans", "img":"img/matki_usal.jpeg"},
-  {"id":66, "cat":"VEG DRY", "name":"वाटाणा उसळ / Vatana Usal", "desc":"Sprouted peas", "img":"img/vatana_usal.jpeg"},
-  {"id":67, "cat":"ROTI", "name":"पुरी / Puri", "desc":"Deep fried indian bread", "img":"img/puri.jpeg"},
-  {"id":68, "cat":"ROTI", "name":"पालक पुरी / Palak Puri", "desc":"Spinach flavored puri", "img":"img/palak_puri.jpeg"},
-  {"id":69, "cat":"ROTI", "name":"चपाती / Chapati", "desc":"Wheat flatbread", "img":"img/chapati.jpeg"},
-  {"id":70, "cat":"ROTI", "name":"फुलके / Phulke", "desc":"Soft wheat flatbread", "img":"img/phulke.jpeg"},
-  {"id":71, "cat":"ROTI", "name":"रुमाली रोटी / Rumali Roti", "desc":"Thin soft flatbread", "img":"img/rumal_roti.jpeg"},
-  {"id":72, "cat":"ROTI", "name":"भटोरा / Bhatura", "desc":"Fluffy deep fried bread", "img":"img/bhatura.jpeg"},
-  {"id":73, "cat":"ROTI", "name":"रोटी / Roti", "desc":"Tandoor baked bread", "img":"img/roti.jpeg"},
-  {"id":74, "cat":"ROTI", "name":"नान / Naan", "desc":"Soft leavened bread", "img":"img/naan.jpeg"},
-  {"id":75, "cat":"ROTI", "name":"भाकरी (ज्वारी) / Bhakri (Jowar)", "desc":"Sorghum flatbread", "img":"img/bhakri_jowar.jpeg"},
-  {"id":76, "cat":"ROTI", "name":"भाकरी (बाजरी) / Bhakri (Bajra)", "desc":"Pearl millet flatbread", "img":"img/bhakri_bajra.jpeg"},
-  {"id":77, "cat":"ROTI", "name":"भाकरी (नाचणी) / Bhakri (Nachni)", "desc":"Finger millet flatbread", "img":"img/bhakri_nachni.jpeg"},
-  {"id":78, "cat":"SWEET", "name":"बुंदी / Bundi", "desc":"Sweet gram flour droplets", "img":"img/bundi.jpeg"},
-  {"id":79, "cat":"SWEET", "name":"मोतीचूर लाडू / Motichur Ladoo", "desc":"Sweet fine bundi balls", "img":"img/motichur_ladoo.jpeg"},
-  {"id":80, "cat":"SWEET", "name":"बालूशाही / Balushahi", "desc":"Flaky sweet pastry", "img":"img/balushahi.jpeg"},
-  {"id":81, "cat":"SWEET", "name":"गुलाबजामुन / Gulab Jamun", "desc":"Soft milk dumplings", "img":"img/gulab_jamun.jpeg"},
-  {"id":82, "cat":"SWEET", "name":"जिलेबी / Jalebi", "desc":"Crispy syrupy dessert", "img":"img/jalebi.jpeg"},
-  {"id":83, "cat":"SWEET", "name":"शिरा / Sheera", "desc":"Sweet semolina pudding", "img":"img/sheera.jpeg"},
-  {"id":84, "cat":"SWEET", "name":"बासुंदी / Basundi", "desc":"Thickened sweet milk", "img":"img/basundi.jpeg"},
-  {"id":85, "cat":"SWEET", "name":"रबडी / Rabdi", "desc":"Sweet condensed milk", "img":"img/rabdi.jpeg"},
-  {"id":86, "cat":"SWEET", "name":"आमरस / Aamras", "desc":"Sweet mango pulp", "img":"img/aamras.jpeg"},
-  {"id":87, "cat":"SWEET", "name":"रसमलाई / Rasmalai", "desc":"Cottage cheese in sweet milk", "img":"img/rasmalai.jpeg"},
-  {"id":88, "cat":"SWEET", "name":"बर्फी / Barfi", "desc":"Sweet milk fudge", "img":"img/barfi.jpeg"},
-  {"id":89, "cat":"SWEET", "name":"लापशी / Lapshi", "desc":"Sweet broken wheat", "img":"img/lapshi.jpeg"},
-  {"id":90, "cat":"SWEET", "name":"पंचामृत / Panchamrut", "desc":"Sweet mixture of 5 ingredients", "img":"img/panchamrut.jpeg"},
-  {"id":91, "cat":"SWEET", "name":"शेवयांची खीर / Shevai Kheer", "desc":"Vermicelli pudding", "img":"img/shevai_kheer.jpeg"},
-  {"id":92, "cat":"SWEET", "name":"केक / Cake", "desc":"Sweet baked dessert", "img":"img/cake.jpeg"},
-  {"id":93, "cat":"SWEET", "name":"हलवा / Halwa", "desc":"Sweet Indian pudding", "img":"img/halwa.jpeg"},
-  {"id":94, "cat":"ICE CREAM", "name":"व्हॅनिला आईस्क्रीम / Vanilla Ice Cream", "desc":"Classic vanilla flavor", "img":"img/vanilla_ice_cream.jpeg"},
-  {"id":95, "cat":"ICE CREAM", "name":"पिस्ता आईस्क्रीम / Pista Ice Cream", "desc":"Pistachio flavor", "img":"img/pista_ice_cream.jpeg"},
-  {"id":96, "cat":"ICE CREAM", "name":"बदाम आईस्क्रीम / Badam Ice Cream", "desc":"Almond flavor", "img":"img/badam_ice_cream.jpeg"},
-  {"id":97, "cat":"ICE CREAM", "name":"अमेरिकन ड्रायफ्रूट / American Dryfruit", "desc":"Mixed dryfruit ice cream", "img":"img/american_dryfruit.jpeg"},
-  {"id":98, "cat":"ICE CREAM", "name":"चॉकलेट आईस्क्रीम / Chocolate Ice Cream", "desc":"Rich chocolate flavor", "img":"img/chocolate_ice_cream.jpeg"},
-  {"id":99, "cat":"ICE CREAM", "name":"फालुदा / Falooda", "desc":"Cold dessert beverage", "img":"img/falooda.jpeg"},
-  {"id":100, "cat":"ICE CREAM", "name":"मिल्कशेक / Milkshake", "desc":"Blended milk beverage", "img":"img/milkshake.jpeg"},
-  {"id":101, "cat":"CHINESE", "name":"व्हेज फ्राईड राईस / Veg Fried Rice", "desc":"Stir fried rice", "img":"img/veg_fried_rice.jpeg"},
-  {"id":102, "cat":"CHINESE", "name":"व्हेज शेजवान राईस / Veg Schezwan Rice", "desc":"Spicy fried rice", "img":"img/veg_schezwan_rice.jpeg"},
-  {"id":103, "cat":"CHINESE", "name":"व्हेज नूडल्स / Veg Noodles", "desc":"Stir fried noodles", "img":"img/veg_noodles.jpeg"},
-  {"id":104, "cat":"CHINESE", "name":"शेजवान नूडल्स / Schezwan Noodles", "desc":"Spicy stir fried noodles", "img":"img/schezwan_noodles.jpeg"},
-  {"id":105, "cat":"CHINESE", "name":"व्हेज मंचुरियन / Veg Manchurian", "desc":"Fried veg balls in sauce", "img":"img/veg_manchurian.jpeg"},
-  {"id":106, "cat":"CHINESE", "name":"हक्का नूडल्स / Hakka Noodles", "desc":"Classic chinese noodles", "img":"img/hakka_noodles.jpeg"},
-  {"id":107, "cat":"CHINESE", "name":"चायनीज भजी / Chinese Bhaji", "desc":"Crispy chinese fritters", "img":"img/chinese_bhaji.jpeg"},
-  {"id":108, "cat":"CHINESE", "name":"चायनीज भेळ / Chinese Bhel", "desc":"Crispy noodles snack", "img":"img/chinese_bhel.jpeg"},
-  {"id":109, "cat":"CHINESE", "name":"चायनीज सॅलड / Chinese Salad", "desc":"Crunchy vegetable salad", "img":"img/chinese_salad.jpeg"},
-  {"id":110, "cat":"SOUP", "name":"टोमॅटो सूप / Tomato Soup", "desc":"Warm tomato broth", "img":"img/tomato_soup_2.jpeg"},
-  {"id":111, "cat":"SOUP", "name":"मंचुरियन सूप / Manchurian Soup", "desc":"Spicy chinese soup", "img":"img/manchurian_soup_2.jpeg"},
-  {"id":112, "cat":"SOUP", "name":"पालक सूप / Palak Soup", "desc":"Warm spinach broth", "img":"img/palak_soup.jpeg"},
-  {"id":113, "cat":"CHICKEN", "name":"चिकन दम बिर्याणी / Chicken Dum Biryani", "desc":"Slow cooked chicken biryani", "img":"img/chicken_dum_biryani.jpeg"},
-  {"id":114, "cat":"CHICKEN", "name":"चिकन पुलाव / Chicken Pulao", "desc":"Chicken and rice dish", "img":"img/chicken_pulao.jpeg"},
-  {"id":115, "cat":"CHICKEN", "name":"चिकन मसाला / Chicken Masala", "desc":"Spicy chicken gravy", "img":"img/chicken_masala.jpeg"},
-  {"id":116, "cat":"CHICKEN", "name":"चिकन तंदूरी / Chicken Tandoori", "desc":"Roasted chicken", "img":"img/chicken_tandoori.jpeg"},
-  {"id":117, "cat":"CHICKEN", "name":"चिकन टिक्का / Chicken Tikka", "desc":"Spiced grilled chicken chunks", "img":"img/chicken_tikka.jpeg"},
-  {"id":118, "cat":"CHICKEN", "name":"चिकन रस्सा / Chicken Rassa", "desc":"Thin spicy chicken curry", "img":"img/chicken_rassa.jpeg"},
-  {"id":119, "cat":"CHICKEN", "name":"चिकन सूप / Chicken Soup", "desc":"Warm chicken broth", "img":"img/chicken_soup.jpeg"},
-  {"id":120, "cat":"CHICKEN", "name":"चिकन दालचा / Chicken Dalcha", "desc":"Chicken and lentil stew", "img":"img/chicken_dalcha.jpeg"},
-  {"id":121, "cat":"CHICKEN", "name":"चिकन कटलेट / Chicken Cutlet", "desc":"Crispy chicken patty", "img":"img/chicken_cutlet.jpeg"},
-  {"id":122, "cat":"MUTTON", "name":"मटण दम बिर्याणी / Mutton Dum Biryani", "desc":"Slow cooked mutton biryani", "img":"img/mutton_dum_biryani.jpeg"},
-  {"id":123, "cat":"MUTTON", "name":"मटण पुलाव / Mutton Pulao", "desc":"Mutton and rice dish", "img":"img/mutton_pulao.jpeg"},
-  {"id":124, "cat":"MUTTON", "name":"मटण मसाला / Mutton Masala", "desc":"Spicy mutton gravy", "img":"img/mutton_masala.jpeg"},
-  {"id":125, "cat":"MUTTON", "name":"मटण कबाब / Mutton Kabab", "desc":"Spiced minced mutton skewers", "img":"img/mutton_kabab.jpeg"},
-  {"id":126, "cat":"MUTTON", "name":"मटण सूप / Mutton Soup", "desc":"Warm mutton broth", "img":"img/mutton_soup.jpeg"},
-  {"id":127, "cat":"MUTTON", "name":"मटण दालचा / Mutton Dalcha", "desc":"Mutton and lentil stew", "img":"img/mutton_dalcha.jpeg"}
+  {"id":1, "cat":"BREAKFAST", "name":"पोहे / Poha", "desc":"Traditional Indian breakfast", "img":"img/poha.jpg"},
+  {"id":2, "cat":"BREAKFAST", "name":"उपमा / Upma", "desc":"Savory semolina dish", "img":"img/upma.jpg"},
+  {"id":3, "cat":"BREAKFAST", "name":"खिचडी / Khichdi", "desc":"Rice and lentil dish", "img":"img/khichdi.jpg"},
+  {"id":4, "cat":"BREAKFAST", "name":"समोसा / Samosa", "desc":"Crispy savory pastry", "img":"img/samosa.jpg"},
+  {"id":5, "cat":"BREAKFAST", "name":"इतर नाश्ता / Other Breakfast Items", "desc":"Various breakfast snacks", "img":"img/other_breakfast.jpg"},
+  {"id":6, "cat":"HOT BEVERAGES", "name":"चहा / Tea", "desc":"Hot brewed tea", "img":"img/tea.jpg"},
+  {"id":7, "cat":"HOT BEVERAGES", "name":"कॉफी / Coffee", "desc":"Hot brewed coffee", "img":"img/coffee.jpg"},
+  {"id":8, "cat":"HOT BEVERAGES", "name":"मसाला दूध / Masala Milk", "desc":"Spiced hot milk", "img":"img/masala_milk.jpg"},
+  {"id":9, "cat":"COLD BEVERAGES", "name":"सरबत (सर्व फ्लेवर) / Sharbat (All Flavors)", "desc":"Sweet fruit drink", "img":"img/sharbat.jpg"},
+  {"id":10, "cat":"COLD BEVERAGES", "name":"कैरी पन्हे / Kairi Panha", "desc":"Raw mango drink", "img":"img/kairi_panha.jpg"},
+  {"id":11, "cat":"COLD BEVERAGES", "name":"कोल्ड ड्रिंक्स / Cold Drinks", "desc":"Pepsi, Thums Up, Slice, Maaza etc.", "img":"img/cold_drinks.jpg"},
+  {"id":12, "cat":"THALI", "name":"साधी थाळी / Standard Thali", "desc":"Plain rice, Varan, Masale Bhat, Aloo Matar, Puri, Jalebi, Mattha, Papad, Chutney", "img":"img/standard_thali.jpg"},
+  {"id":13, "cat":"THALI", "name":"डिलक्स थाळी / Deluxe Thali", "desc":"Jeera Rice, Dal Tadka, Veg Pulao, Matar Paneer, Puri, Gulab Jamun, Pickle, Papad, Kanda Bhaji", "img":"img/deluxe_thali.jpg"},
+  {"id":14, "cat":"THALI", "name":"प्रीमियम थाळी / Premium Thali", "desc":"Jeera Rice, Dal Tadka, Veg Biryani, Paneer Tikka, Puri, Phulke, Rabdi, Papad, Pickle, Salad, Batata Vada", "img":"img/premium_thali.jpg"},
+  {"id":15, "cat":"THALI", "name":"आईस्क्रीम आणि पान / Ice Cream & Paan", "desc":"Dessert and mouth freshener", "img":"img/ice_cream_paan.jpg"},
+  {"id":16, "cat":"STARTERS", "name":"व्हेज स्टार्टर / Veg Starter", "desc":"Assorted veg starters", "img":"img/veg_starter.jpg"},
+  {"id":17, "cat":"STARTERS", "name":"व्हेज मंचुरियन / Veg Manchurian", "desc":"Indo-chinese fried veg balls", "img":"img/veg_manchurian.jpg"},
+  {"id":18, "cat":"STARTERS", "name":"स्प्रिंग रोल / Spring Roll", "desc":"Crispy stuffed rolls", "img":"img/spring_roll.jpg"},
+  {"id":19, "cat":"STARTERS", "name":"फ्लॉवर लॉलीपॉप / Flower Lollipop", "desc":"Crispy fried cauliflower", "img":"img/flower_lollipop.jpg"},
+  {"id":20, "cat":"STARTERS", "name":"मंचुरीयन सूप / Manchurian Soup", "desc":"Spicy chinese soup", "img":"img/manchurian_soup.jpg"},
+  {"id":21, "cat":"STARTERS", "name":"टोमॅटो सूप / Tomato Soup", "desc":"Warm tomato soup", "img":"img/tomato_soup.jpg"},
+  {"id":22, "cat":"STARTERS", "name":"कटलेट / Cutlet", "desc":"Crispy veg patty", "img":"img/cutlet.jpg"},
+  {"id":23, "cat":"RICE", "name":"प्लेन राईस (कोलम) / Plain Rice (Kolam)", "desc":"Steamed kolam rice", "img":"img/plain_rice_kolam.jpg"},
+  {"id":24, "cat":"RICE", "name":"प्लेन राईस (बासमती) / Plain Rice (Basmati)", "desc":"Steamed basmati rice", "img":"img/plain_rice_basmati.jpg"},
+  {"id":25, "cat":"RICE", "name":"व्हेज बिर्याणी / Veg Biryani", "desc":"Spiced vegetable biryani", "img":"img/veg_biryani.jpg"},
+  {"id":26, "cat":"RICE", "name":"व्हेज पुलाव / Veg Pulao", "desc":"Aromatic basmati rice", "img":"img/veg_pulao.jpg"},
+  {"id":27, "cat":"RICE", "name":"जिरा राईस (कोलम) / Jeera Rice (Kolam)", "desc":"Cumin flavored kolam rice", "img":"img/jeera_rice_kolam.jpg"},
+  {"id":28, "cat":"RICE", "name":"जिरा राईस (बासमती) / Jeera Rice (Basmati)", "desc":"Cumin flavored basmati rice", "img":"img/jeera_rice_basmati.jpg"},
+  {"id":29, "cat":"RICE", "name":"मटर पुलाव / Matar Pulao", "desc":"Green peas rice", "img":"img/matar_pulao.jpg"},
+  {"id":30, "cat":"RICE", "name":"दालचा राईस / Dalcha Rice", "desc":"Rice with dalcha", "img":"img/dalcha_rice.jpg"},
+  {"id":31, "cat":"RICE", "name":"मसाले भात / Masala Bhat", "desc":"Spiced maharashtrian rice", "img":"img/masala_bhat.jpg"},
+  {"id":32, "cat":"DAL", "name":"ब्राम्हणी डाळ / Bramhani Dal", "desc":"Traditional sweet-spicy dal", "img":"img/bramhani_dal.jpg"},
+  {"id":33, "cat":"DAL", "name":"साधं वरण / Sadha Varan", "desc":"Plain cooked lentils", "img":"img/sadha_varan.jpg"},
+  {"id":34, "cat":"DAL", "name":"दाल तडका / Dal Tadka", "desc":"Tempered lentils", "img":"img/dal_tadka.jpg"},
+  {"id":35, "cat":"DAL", "name":"दाल फ्राय / Dal Fry", "desc":"Spiced fried lentils", "img":"img/dal_fry.jpg"},
+  {"id":36, "cat":"DAL", "name":"सांबर / Sambar", "desc":"South Indian lentil stew", "img":"img/sambar.jpg"},
+  {"id":37, "cat":"DAL", "name":"दालचा व्हेज / Dalcha Veg", "desc":"Lentil and vegetable stew", "img":"img/dalcha_veg.jpg"},
+  {"id":38, "cat":"VEG GRAVY", "name":"शाक भाजी / Shak Bhaji", "desc":"Mixed vegetable curry", "img":"img/shak_bhaji.jpg"},
+  {"id":39, "cat":"VEG GRAVY", "name":"आलू मटर / Aloo Matar", "desc":"Potato and peas curry", "img":"img/aloo_matar.jpg"},
+  {"id":40, "cat":"VEG GRAVY", "name":"छोले / Chole", "desc":"Spicy chickpea curry", "img":"img/chole.jpg"},
+  {"id":41, "cat":"VEG GRAVY", "name":"राजमा / Rajma", "desc":"Kidney beans curry", "img":"img/rajma.jpg"},
+  {"id":42, "cat":"VEG GRAVY", "name":"मटर पनीर / Matar Paneer", "desc":"Peas and paneer gravy", "img":"img/matar_paneer.jpg"},
+  {"id":43, "cat":"VEG GRAVY", "name":"पनीर टिक्का / Paneer Tikka", "desc":"Grilled paneer in gravy", "img":"img/paneer_tikka.jpg"},
+  {"id":44, "cat":"VEG GRAVY", "name":"व्हेज मराठा / Veg Maratha", "desc":"Spicy maharashtrian curry", "img":"img/veg_maratha.jpg"},
+  {"id":45, "cat":"VEG GRAVY", "name":"मिक्स मराठा / Mix Maratha", "desc":"Mixed veg in spicy gravy", "img":"img/mix_maratha.jpg"},
+  {"id":46, "cat":"VEG GRAVY", "name":"डबल बीन / Double Bean", "desc":"Double bean spicy gravy", "img":"img/double_bean.jpg"},
+  {"id":47, "cat":"VEG GRAVY", "name":"पालक पनीर / Palak Paneer", "desc":"Paneer in spinach gravy", "img":"img/palak_paneer.jpg"},
+  {"id":48, "cat":"VEG GRAVY", "name":"बैंगन मसाला / Baingan Masala", "desc":"Spicy eggplant curry", "img":"img/baingan_masala.jpg"},
+  {"id":49, "cat":"VEG GRAVY", "name":"अळू भाजी / Alu Bhaji", "desc":"Potato/Taro curry", "img":"img/alu_bhaji.jpg"},
+  {"id":50, "cat":"VEG GRAVY", "name":"व्हेज भुना / Veg Bhuna", "desc":"Roasted mixed veg gravy", "img":"img/veg_bhuna.jpg"},
+  {"id":51, "cat":"VEG GRAVY", "name":"मटकी / Matki", "desc":"Moth bean gravy", "img":"img/matki.jpg"},
+  {"id":52, "cat":"VEG GRAVY", "name":"चवळी बटाटा / Chawali Batata", "desc":"Black-eyed peas & potato", "img":"img/chawali_batata.jpg"},
+  {"id":53, "cat":"VEG DRY", "name":"दोसा भाजी / Dosa Bhaji", "desc":"Dry potato sabzi", "img":"img/dosa_bhaji.jpg"},
+  {"id":54, "cat":"VEG DRY", "name":"भेंडी फ्राय / Bhendi Fry", "desc":"Fried okra", "img":"img/bhendi_fry.jpg"},
+  {"id":55, "cat":"VEG DRY", "name":"बैंगन मसाला (सुकी) / Baingan Masala (Dry)", "desc":"Dry spicy eggplant", "img":"img/baingan_masala_dry.jpg"},
+  {"id":56, "cat":"VEG DRY", "name":"चना मसाला / Chana Masala", "desc":"Dry spicy chickpeas", "img":"img/chana_masala.jpg"},
+  {"id":57, "cat":"VEG DRY", "name":"चना फ्राय / Chana Fry", "desc":"Fried spiced chickpeas", "img":"img/chana_fry.jpg"},
+  {"id":58, "cat":"VEG DRY", "name":"तवा भाजी / Tawa Bhaji", "desc":"Pan fried mixed veggies", "img":"img/tawa_bhaji.jpg"},
+  {"id":59, "cat":"VEG DRY", "name":"काजू मसाला / Kaju Masala", "desc":"Cashew dry sabzi", "img":"img/kaju_masala.jpg"},
+  {"id":60, "cat":"VEG DRY", "name":"पनीर मसाला / Paneer Masala", "desc":"Spicy paneer dry", "img":"img/paneer_masala.jpg"},
+  {"id":61, "cat":"VEG DRY", "name":"मटार मसाला / Matar Masala", "desc":"Green peas dry sabzi", "img":"img/matar_masala.jpg"},
+  {"id":62, "cat":"VEG DRY", "name":"राजमा मसाला / Rajma Masala", "desc":"Kidney beans dry sabzi", "img":"img/rajma_masala.jpg"},
+  {"id":63, "cat":"VEG DRY", "name":"चवळी मसाला / Chawali Masala", "desc":"Black-eyed peas dry sabzi", "img":"img/chawali_masala.jpg"},
+  {"id":64, "cat":"VEG DRY", "name":"कोबी / Kobi", "desc":"Cabbage sabzi", "img":"img/kobi.jpg"},
+  {"id":65, "cat":"VEG DRY", "name":"मटकी उसळ / Matki Usal", "desc":"Sprouted moth beans", "img":"img/matki_usal.jpg"},
+  {"id":66, "cat":"VEG DRY", "name":"वाटाणा उसळ / Vatana Usal", "desc":"Sprouted peas", "img":"img/vatana_usal.jpg"},
+  {"id":67, "cat":"ROTI", "name":"पुरी / Puri", "desc":"Deep fried indian bread", "img":"img/puri.jpg"},
+  {"id":68, "cat":"ROTI", "name":"पालक पुरी / Palak Puri", "desc":"Spinach flavored puri", "img":"img/palak_puri.jpg"},
+  {"id":69, "cat":"ROTI", "name":"चपाती / Chapati", "desc":"Wheat flatbread", "img":"img/chapati.jpg"},
+  {"id":70, "cat":"ROTI", "name":"फुलके / Phulke", "desc":"Soft wheat flatbread", "img":"img/phulke.jpg"},
+  {"id":71, "cat":"ROTI", "name":"रुमाली रोटी / Rumali Roti", "desc":"Thin soft flatbread", "img":"img/rumal_roti.jpg"},
+  {"id":72, "cat":"ROTI", "name":"भटोरा / Bhatura", "desc":"Fluffy deep fried bread", "img":"img/bhatura.jpg"},
+  {"id":73, "cat":"ROTI", "name":"रोटी / Roti", "desc":"Tandoor baked bread", "img":"img/roti.jpg"},
+  {"id":74, "cat":"ROTI", "name":"नान / Naan", "desc":"Soft leavened bread", "img":"img/naan.jpg"},
+  {"id":75, "cat":"ROTI", "name":"भाकरी (ज्वारी) / Bhakri (Jowar)", "desc":"Sorghum flatbread", "img":"img/bhakri_jowar.jpg"},
+  {"id":76, "cat":"ROTI", "name":"भाकरी (बाजरी) / Bhakri (Bajra)", "desc":"Pearl millet flatbread", "img":"img/bhakri_bajra.jpg"},
+  {"id":77, "cat":"ROTI", "name":"भाकरी (नाचणी) / Bhakri (Nachni)", "desc":"Finger millet flatbread", "img":"img/bhakri_nachni.jpg"},
+  {"id":78, "cat":"SWEET", "name":"बुंदी / Bundi", "desc":"Sweet gram flour droplets", "img":"img/bundi.jpg"},
+  {"id":79, "cat":"SWEET", "name":"मोतीचूर लाडू / Motichur Ladoo", "desc":"Sweet fine bundi balls", "img":"img/motichur_ladoo.jpg"},
+  {"id":80, "cat":"SWEET", "name":"बालूशाही / Balushahi", "desc":"Flaky sweet pastry", "img":"img/balushahi.jpg"},
+  {"id":81, "cat":"SWEET", "name":"गुलाबजामुन / Gulab Jamun", "desc":"Soft milk dumplings", "img":"img/gulab_jamun.jpg"},
+  {"id":82, "cat":"SWEET", "name":"जिलेबी / Jalebi", "desc":"Crispy syrupy dessert", "img":"img/jalebi.jpg"},
+  {"id":83, "cat":"SWEET", "name":"शिरा / Sheera", "desc":"Sweet semolina pudding", "img":"img/sheera.jpg"},
+  {"id":84, "cat":"SWEET", "name":"बासुंदी / Basundi", "desc":"Thickened sweet milk", "img":"img/basundi.jpg"},
+  {"id":85, "cat":"SWEET", "name":"रबडी / Rabdi", "desc":"Sweet condensed milk", "img":"img/rabdi.jpg"},
+  {"id":86, "cat":"SWEET", "name":"आमरस / Aamras", "desc":"Sweet mango pulp", "img":"img/aamras.jpg"},
+  {"id":87, "cat":"SWEET", "name":"रसमलाई / Rasmalai", "desc":"Cottage cheese in sweet milk", "img":"img/rasmalai.jpg"},
+  {"id":88, "cat":"SWEET", "name":"बर्फी / Barfi", "desc":"Sweet milk fudge", "img":"img/barfi.jpg"},
+  {"id":89, "cat":"SWEET", "name":"लापशी / Lapshi", "desc":"Sweet broken wheat", "img":"img/lapshi.jpg"},
+  {"id":90, "cat":"SWEET", "name":"पंचामृत / Panchamrut", "desc":"Sweet mixture of 5 ingredients", "img":"img/panchamrut.jpg"},
+  {"id":91, "cat":"SWEET", "name":"शेवयांची खीर / Shevai Kheer", "desc":"Vermicelli pudding", "img":"img/shevai_kheer.jpg"},
+  {"id":92, "cat":"SWEET", "name":"केक / Cake", "desc":"Sweet baked dessert", "img":"img/cake.jpg"},
+  {"id":93, "cat":"SWEET", "name":"हलवा / Halwa", "desc":"Sweet Indian pudding", "img":"img/halwa.jpg"},
+  {"id":94, "cat":"ICE CREAM", "name":"व्हॅनिला आईस्क्रीम / Vanilla Ice Cream", "desc":"Classic vanilla flavor", "img":"img/vanilla_ice_cream.jpg"},
+  {"id":95, "cat":"ICE CREAM", "name":"पिस्ता आईस्क्रीम / Pista Ice Cream", "desc":"Pistachio flavor", "img":"img/pista_ice_cream.jpg"},
+  {"id":96, "cat":"ICE CREAM", "name":"बदाम आईस्क्रीम / Badam Ice Cream", "desc":"Almond flavor", "img":"img/badam_ice_cream.jpg"},
+  {"id":97, "cat":"ICE CREAM", "name":"अमेरिकन ड्रायफ्रूट / American Dryfruit", "desc":"Mixed dryfruit ice cream", "img":"img/american_dryfruit.jpg"},
+  {"id":98, "cat":"ICE CREAM", "name":"चॉकलेट आईस्क्रीम / Chocolate Ice Cream", "desc":"Rich chocolate flavor", "img":"img/chocolate_ice_cream.jpg"},
+  {"id":99, "cat":"ICE CREAM", "name":"फालुदा / Falooda", "desc":"Cold dessert beverage", "img":"img/falooda.jpg"},
+  {"id":100, "cat":"ICE CREAM", "name":"मिल्कशेक / Milkshake", "desc":"Blended milk beverage", "img":"img/milkshake.jpg"},
+  {"id":101, "cat":"CHINESE", "name":"व्हेज फ्राईड राईस / Veg Fried Rice", "desc":"Stir fried rice", "img":"img/veg_fried_rice.jpg"},
+  {"id":102, "cat":"CHINESE", "name":"व्हेज शेजवान राईस / Veg Schezwan Rice", "desc":"Spicy fried rice", "img":"img/veg_schezwan_rice.jpg"},
+  {"id":103, "cat":"CHINESE", "name":"व्हेज नूडल्स / Veg Noodles", "desc":"Stir fried noodles", "img":"img/veg_noodles.jpg"},
+  {"id":104, "cat":"CHINESE", "name":"शेजवान नूडल्स / Schezwan Noodles", "desc":"Spicy stir fried noodles", "img":"img/schezwan_noodles.jpg"},
+  {"id":105, "cat":"CHINESE", "name":"व्हेज मंचुरियन / Veg Manchurian", "desc":"Fried veg balls in sauce", "img":"img/veg_manchurian.jpg"},
+  {"id":106, "cat":"CHINESE", "name":"हक्का नूडल्स / Hakka Noodles", "desc":"Classic chinese noodles", "img":"img/hakka_noodles.jpg"},
+  {"id":107, "cat":"CHINESE", "name":"चायनीज भजी / Chinese Bhaji", "desc":"Crispy chinese fritters", "img":"img/chinese_bhaji.jpg"},
+  {"id":108, "cat":"CHINESE", "name":"चायनीज भेळ / Chinese Bhel", "desc":"Crispy noodles snack", "img":"img/chinese_bhel.jpg"},
+  {"id":109, "cat":"CHINESE", "name":"चायनीज सॅलड / Chinese Salad", "desc":"Crunchy vegetable salad", "img":"img/chinese_salad.jpg"},
+  {"id":110, "cat":"SOUP", "name":"टोमॅटो सूप / Tomato Soup", "desc":"Warm tomato broth", "img":"img/tomato_soup_2.jpg"},
+  {"id":111, "cat":"SOUP", "name":"मंचुरियन सूप / Manchurian Soup", "desc":"Spicy chinese soup", "img":"img/manchurian_soup_2.jpg"},
+  {"id":112, "cat":"SOUP", "name":"पालक सूप / Palak Soup", "desc":"Warm spinach broth", "img":"img/palak_soup.jpg"},
+  {"id":113, "cat":"CHICKEN", "name":"चिकन दम बिर्याणी / Chicken Dum Biryani", "desc":"Slow cooked chicken biryani", "img":"img/chicken_dum_biryani.jpg"},
+  {"id":114, "cat":"CHICKEN", "name":"चिकन पुलाव / Chicken Pulao", "desc":"Chicken and rice dish", "img":"img/chicken_pulao.jpg"},
+  {"id":115, "cat":"CHICKEN", "name":"चिकन मसाला / Chicken Masala", "desc":"Spicy chicken gravy", "img":"img/chicken_masala.jpg"},
+  {"id":116, "cat":"CHICKEN", "name":"चिकन तंदूरी / Chicken Tandoori", "desc":"Roasted chicken", "img":"img/chicken_tandoori.jpg"},
+  {"id":117, "cat":"CHICKEN", "name":"चिकन टिक्का / Chicken Tikka", "desc":"Spiced grilled chicken chunks", "img":"img/chicken_tikka.jpg"},
+  {"id":118, "cat":"CHICKEN", "name":"चिकन रस्सा / Chicken Rassa", "desc":"Thin spicy chicken curry", "img":"img/chicken_rassa.jpg"},
+  {"id":119, "cat":"CHICKEN", "name":"चिकन सूप / Chicken Soup", "desc":"Warm chicken broth", "img":"img/chicken_soup.jpg"},
+  {"id":120, "cat":"CHICKEN", "name":"चिकन दालचा / Chicken Dalcha", "desc":"Chicken and lentil stew", "img":"img/chicken_dalcha.jpg"},
+  {"id":121, "cat":"CHICKEN", "name":"चिकन कटलेट / Chicken Cutlet", "desc":"Crispy chicken patty", "img":"img/chicken_cutlet.jpg"},
+  {"id":122, "cat":"MUTTON", "name":"मटण दम बिर्याणी / Mutton Dum Biryani", "desc":"Slow cooked mutton biryani", "img":"img/mutton_dum_biryani.jpg"},
+  {"id":123, "cat":"MUTTON", "name":"मटण पुलाव / Mutton Pulao", "desc":"Mutton and rice dish", "img":"img/mutton_pulao.jpg"},
+  {"id":124, "cat":"MUTTON", "name":"मटण मसाला / Mutton Masala", "desc":"Spicy mutton gravy", "img":"img/mutton_masala.jpg"},
+  {"id":125, "cat":"MUTTON", "name":"मटण कबाब / Mutton Kabab", "desc":"Spiced minced mutton skewers", "img":"img/mutton_kabab.jpg"},
+  {"id":126, "cat":"MUTTON", "name":"मटण सूप / Mutton Soup", "desc":"Warm mutton broth", "img":"img/mutton_soup.jpg"},
+  {"id":127, "cat":"MUTTON", "name":"मटण दालचा / Mutton Dalcha", "desc":"Mutton and lentil stew", "img":"img/mutton_dalcha.jpg"}
 ];
-    const nonVegMenu = 
-    [
-  {"id":128, "cat":"SWEETS", "name":"मावा बर्फी / Mawa Barfi", "desc":"Sweet milk fudge", "img":"img/mawa_barfi.jpeg"},
-  {"id":129, "cat":"SWEETS", "name":"चॉकलेट बर्फी / Chocolate Barfi", "desc":"Chocolate flavored sweet", "img":"img/chocolate_barfi.jpeg"},
-  {"id":130, "cat":"SWEETS", "name":"अंजीर बर्फी / Anjeer Barfi", "desc":"Fig flavored sweet", "img":"img/anjeer_barfi.jpeg"},
-  {"id":131, "cat":"SWEETS", "name":"खोबरा बर्फी / Khobra Barfi", "desc":"Coconut fudge", "img":"img/khobra_barfi.jpeg"},
-  {"id":132, "cat":"SWEETS", "name":"तिरंगा बर्फी / Tiranga Barfi", "desc":"Tri-colored sweet", "img":"img/tiranga_barfi.jpeg"},
-  {"id":133, "cat":"SWEETS", "name":"बदाम बर्फी / Badam Barfi", "desc":"Almond sweet fudge", "img":"img/badam_barfi.jpeg"},
-  {"id":134, "cat":"SWEETS", "name":"काजू बर्फी / Kaju Barfi", "desc":"Cashew sweet fudge", "img":"img/kaju_barfi.jpeg"},
-  {"id":135, "cat":"SWEETS", "name":"पिस्ता बर्फी / Pista Barfi", "desc":"Pistachio sweet", "img":"img/pista_barfi.jpeg"},
-  {"id":136, "cat":"SWEETS", "name":"पेढा / Pedha", "desc":"Sweet milk solid ball", "img":"img/pedha.jpeg"},
-  {"id":137, "cat":"SWEETS", "name":"केसरी पेढा / Kesari Pedha", "desc":"Saffron flavored pedha", "img":"img/kesari_pedha.jpeg"},
-  {"id":138, "cat":"SWEETS", "name":"पिस्ता पेढा / Pista Pedha", "desc":"Pistachio flavored pedha", "img":"img/pista_pedha.jpeg"},
-  {"id":139, "cat":"SWEETS", "name":"काजू कतली / Kaju Katli", "desc":"Classic cashew sweet", "img":"img/kaju_katli.jpeg"},
-  {"id":140, "cat":"SWEETS", "name":"सिताफल रबडी / Sitafal Rabdi", "desc":"Custard apple sweet milk", "img":"img/sitafal_rabdi.jpeg"},
-  {"id":141, "cat":"SWEETS", "name":"अंगुरी रस-मलाई / Angoori Rasmalai", "desc":"Mini cottage cheese balls in sweet milk", "img":"img/angoori_rasmalai.jpeg"},
-  {"id":142, "cat":"SWEETS", "name":"बासुंदी / Basundi", "desc":"Thickened sweet milk", "img":"img/basundi.jpeg"},
-  {"id":143, "cat":"SWEETS", "name":"रस-मलाई / Rasmalai", "desc":"Cottage cheese in sweet milk", "img":"img/rasmalai.jpeg"},
-  {"id":144, "cat":"SWEETS", "name":"बादाम रोल / Badam Roll", "desc":"Almond sweet roll", "img":"img/badam_roll.jpeg"},
-  {"id":145, "cat":"SWEETS", "name":"काजू रोल / Kaju Roll", "desc":"Cashew sweet roll", "img":"img/kaju_roll.jpeg"},
-  {"id":146, "cat":"SWEETS", "name":"लापसी / Lapsi", "desc":"Sweet broken wheat dish", "img":"img/lapsi.jpeg"},
-  {"id":147, "cat":"SWEETS", "name":"डॉलर जिलेबी / Dollar Jalebi", "desc":"Mini crispy syrupy sweet", "img":"img/dollar_jalebi.jpeg"},
-  {"id":148, "cat":"SWEETS", "name":"जिलेबी / Jalebi", "desc":"Crispy syrupy sweet", "img":"img/jalebi.jpeg"},
-  {"id":149, "cat":"SWEETS", "name":"इमरती / Imarti", "desc":"Flower shaped syrupy sweet", "img":"img/imarti.jpeg"},
-  {"id":150, "cat":"SWEETS", "name":"कलाकंद / Kalakand", "desc":"Milk milk sweet", "img":"img/kalakand.jpeg"},
-  {"id":151, "cat":"SWEETS", "name":"बुंदी / Bundi", "desc":"Sweet gram flour droplets", "img":"img/bundi.jpeg"},
-  {"id":152, "cat":"SWEETS", "name":"बुंदी लड्डू / Bundi Ladoo", "desc":"Sweet droplet balls", "img":"img/bundi_ladoo.jpeg"},
-  {"id":153, "cat":"SWEETS", "name":"मोतीचूर लड्डू / Motichur Ladoo", "desc":"Fine sweet droplet balls", "img":"img/motichur_ladoo.jpeg"},
-  {"id":154, "cat":"SWEETS", "name":"चमचम / Chamcham", "desc":"Traditional Bengali sweet", "img":"img/chamcham.jpeg"},
-  {"id":155, "cat":"SWEETS", "name":"रसगुल्ला / Rasgulla", "desc":"Spongy sweet balls in syrup", "img":"img/rasgulla.jpeg"},
-  {"id":156, "cat":"SWEETS", "name":"काला जामुन / Kala Jamun", "desc":"Dark fried sweet dumplings", "img":"img/kala_jamun.jpeg"},
-  {"id":157, "cat":"SWEETS", "name":"गुलाब जामुन / Gulab Jamun", "desc":"Soft milk dumplings in syrup", "img":"img/gulab_jamun.jpeg"},
-  {"id":158, "cat":"SWEETS", "name":"गुलाब झारी / Gulab Jhari", "desc":"Traditional sweet", "img":"img/gulab_jhari.jpeg"},
-  {"id":159, "cat":"SWEETS", "name":"आम-रस / Aamras", "desc":"Sweet mango pulp", "img":"img/aamras.jpeg"},
-  {"id":160, "cat":"SWEETS", "name":"दिल जानी / Dil Jani", "desc":"Traditional sweet dish", "img":"img/dil_jani.jpeg"},
-  {"id":161, "cat":"SWEETS", "name":"हलवा / Halwa", "desc":"Sweet Indian pudding", "img":"img/halwa.jpeg"},
-  {"id":162, "cat":"SWEETS", "name":"मुंग-हलवा / Moong Halwa", "desc":"Yellow lentil sweet pudding", "img":"img/moong_halwa.jpeg"},
-  {"id":163, "cat":"SWEETS", "name":"पाईनॅप्पल हलवा / Pineapple Halwa", "desc":"Pineapple flavored sweet pudding", "img":"img/pineapple_halwa.jpeg"},
-  {"id":164, "cat":"SWEETS", "name":"मिक्स फ्रुट हलवा / Mix Fruit Halwa", "desc":"Mixed fruit sweet pudding", "img":"img/mix_fruit_halwa.jpeg"},
-  {"id":165, "cat":"SWEETS", "name":"बदाम हलवा / Badam Halwa", "desc":"Almond sweet pudding", "img":"img/badam_halwa.jpeg"},
-  {"id":166, "cat":"SWEETS", "name":"गाजर हलवा / Gajar Halwa", "desc":"Carrot sweet pudding", "img":"img/gajar_halwa.jpeg"},
-  {"id":167, "cat":"SWEETS", "name":"दुधी हलवा / Dudhi Halwa", "desc":"Bottle gourd sweet pudding", "img":"img/dudhi_halwa.jpeg"},
-  {"id":168, "cat":"SWEETS", "name":"ड्राय-फ्रुट जामुन / Dry Fruit Jamun", "desc":"Dry fruit stuffed sweet dumplings", "img":"img/dry_fruit_jamun.jpeg"},
-  {"id":169, "cat":"SWEETS", "name":"मोहन थाल / Mohan Thal", "desc":"Gram flour fudge", "img":"img/mohan_thal.jpeg"},
-  {"id":170, "cat":"SWEETS", "name":"मैसुर पाक / Mysore Pak", "desc":"Rich gram flour sweet", "img":"img/mysore_pak.jpeg"},
-  {"id":171, "cat":"CHINESE", "name":"व्हेज फ्राईड राईस / Veg Fried Rice", "desc":"Stir fried vegetable rice", "img":"img/veg_fried_rice.jpeg"},
-  {"id":172, "cat":"CHINESE", "name":"मशरूम राईस / Mushroom Rice", "desc":"Stir fried rice with mushrooms", "img":"img/mushroom_rice.jpeg"},
-  {"id":173, "cat":"CHINESE", "name":"मंचुरियन राईस / Manchurian Rice", "desc":"Fried rice with manchurian balls", "img":"img/manchurian_rice.jpeg"},
-  {"id":174, "cat":"CHINESE", "name":"सिंगापुरी फ्रा. राईस / Singapore Fried Rice", "desc":"Spicy and tangy fried rice", "img":"img/singapore_fried_rice.jpeg"},
-  {"id":175, "cat":"CHINESE", "name":"ट्रिपल फ्रा. राईस / Triple Fried Rice", "desc":"Combination of rice, noodles and gravy", "img":"img/triple_fried_rice.jpeg"},
-  {"id":176, "cat":"CHINESE", "name":"व्हेज हाक्का नुडल्स / Veg Hakka Noodles", "desc":"Classic stir fried noodles", "img":"img/veg_hakka_noodles.jpeg"},
-  {"id":177, "cat":"CHINESE", "name":"मशरूम नुडल्स / Mushroom Noodles", "desc":"Stir fried noodles with mushrooms", "img":"img/mushroom_noodles.jpeg"},
-  {"id":178, "cat":"CHINESE", "name":"सेजवान नुडल्स / Schezwan Noodles", "desc":"Spicy stir fried noodles", "img":"img/schezwan_noodles.jpeg"},
-  {"id":179, "cat":"CHINESE", "name":"सिंगापुरी नुडल्स / Singapore Noodles", "desc":"Spicy and tangy noodles", "img":"img/singapore_noodles.jpeg"},
-  {"id":180, "cat":"CHINESE", "name":"अमेरिकन चॉप्सी / American Chopsuey", "desc":"Crispy noodles with sweet and sour gravy", "img":"img/american_chopsuey.jpeg"},
-  {"id":181, "cat":"CHINESE", "name":"व्हेज मंचुरियन / Veg Manchurian", "desc":"Fried vegetable balls in dark sauce", "img":"img/veg_manchurian.jpeg"},
-  {"id":182, "cat":"CHINESE", "name":"मशरूम मंचुरियन / Mushroom Manchurian", "desc":"Fried mushrooms in dark sauce", "img":"img/mushroom_manchurian.jpeg"},
-  {"id":183, "cat":"CHINESE", "name":"गोबी मंचुरियन / Gobi Manchurian", "desc":"Fried cauliflower in dark sauce", "img":"img/gobi_manchurian.jpeg"},
-  {"id":184, "cat":"CHINESE", "name":"पनीर मंचुरियन / Paneer Manchurian", "desc":"Fried paneer in dark sauce", "img":"img/paneer_manchurian.jpeg"},
-  {"id":185, "cat":"CHINESE", "name":"व्हेज ६५ / Veg 65", "desc":"Spicy deep fried vegetable chunks", "img":"img/veg_65.jpeg"},
-  {"id":186, "cat":"CHINESE", "name":"पनीर ६५ / Paneer 65", "desc":"Spicy deep fried paneer chunks", "img":"img/paneer_65.jpeg"},
-  {"id":187, "cat":"CHINESE", "name":"स्प्रिंग रोल / Spring Roll", "desc":"Crispy stuffed rolls", "img":"img/spring_roll.jpeg"},
-  {"id":188, "cat":"CHINESE", "name":"चिझ बॉल / Cheese Balls", "desc":"Crispy fried cheese balls", "img":"img/cheese_balls.jpeg"},
-  {"id":189, "cat":"CHINESE", "name":"मटर रोल / Matar Roll", "desc":"Crispy rolls stuffed with green peas", "img":"img/matar_roll.jpeg"},
-  {"id":190, "cat":"CHINESE", "name":"पनीर स्टिक / Paneer Stick", "desc":"Crispy fried paneer sticks", "img":"img/paneer_stick.jpeg"},
-  {"id":191, "cat":"CHINESE", "name":"व्हेज लॉलीपॉप / Veg Lollipop", "desc":"Crispy fried vegetable balls on stick", "img":"img/veg_lollipop.jpeg"},
-  {"id":192, "cat":"CHINESE", "name":"पनीर लिफाफा / Paneer Lifafa", "desc":"Stuffed paneer parcel", "img":"img/paneer_lifafa.jpeg"},
-  {"id":193, "cat":"CHINESE", "name":"रिमझीम / Rimjhim", "desc":"Special chinese starter", "img":"img/rimjhim.jpeg"},
-  {"id":194, "cat":"CHINESE", "name":"पनीर चिल्ली / Paneer Chilli", "desc":"Spicy stir fried paneer", "img":"img/paneer_chilli.jpeg"},
-  {"id":195, "cat":"CHINESE", "name":"क्रिस्पी बेबी कॉर्न / Crispy Baby Corn", "desc":"Deep fried crispy baby corn", "img":"img/crispy_baby_corn.jpeg"},
-  {"id":196, "cat":"CHINESE", "name":"हराभरा कबाब / Hara Bhara Kabab", "desc":"Green vegetable and spinach patty", "img":"img/hara_bhara_kabab.jpeg"},
-  {"id":197, "cat":"CHINESE", "name":"व्हेज कटलेट / Veg Cutlet", "desc":"Crispy mixed vegetable patty", "img":"img/veg_cutlet.jpeg"},
-  {"id":198, "cat":"CHINESE", "name":"व्हेज क्रिस्पी / Veg Crispy", "desc":"Assorted crispy fried vegetables", "img":"img/veg_crispy.jpeg"},
-  {"id":199, "cat":"CHINESE", "name":"व्हेज साठे / Veg Satay", "desc":"Grilled vegetable skewers with peanut sauce", "img":"img/veg_satay.jpeg"},
-  {"id":200, "cat":"CHINESE", "name":"हनी चिल्ली पोटाटो / Honey Chilli Potato", "desc":"Sweet and spicy crispy potatoes", "img":"img/honey_chilli_potato.jpeg"},
-  {"id":201, "cat":"ICE CREAM", "name":"व्हॅनिला / Vanilla", "desc":"Classic vanilla ice cream", "img":"img/vanilla_ice_cream.jpeg"},
-  {"id":202, "cat":"ICE CREAM", "name":"स्ट्रॉबेरी / Strawberry", "desc":"Strawberry flavored ice cream", "img":"img/strawberry_ice_cream.jpeg"},
-  {"id":203, "cat":"ICE CREAM", "name":"बटर स्कॉच / Butterscotch", "desc":"Butterscotch flavored ice cream", "img":"img/butterscotch_ice_cream.jpeg"},
-  {"id":204, "cat":"ICE CREAM", "name":"चॉकलेट / Chocolate", "desc":"Chocolate flavored ice cream", "img":"img/chocolate_ice_cream.jpeg"},
-  {"id":205, "cat":"ICE CREAM", "name":"ड्राय-फ्रुट / Dry Fruit", "desc":"Dry fruit mixed ice cream", "img":"img/dry_fruit_ice_cream.jpeg"},
-  {"id":206, "cat":"ICE CREAM", "name":"मँगो / Mango", "desc":"Mango flavored ice cream", "img":"img/mango_ice_cream.jpeg"},
-  {"id":207, "cat":"RAITA", "name":"दुधी रायता / Dudhi Raita", "desc":"Bottle gourd in spiced yogurt", "img":"img/dudhi_raita.jpeg"},
-  {"id":208, "cat":"RAITA", "name":"पायनॅप्पल रायता / Pineapple Raita", "desc":"Pineapple chunks in sweet yogurt", "img":"img/pineapple_raita.jpeg"},
-  {"id":209, "cat":"RAITA", "name":"मिक्स व्हेज रायता / Mix Veg Raita", "desc":"Mixed vegetables in spiced yogurt", "img":"img/mix_veg_raita.jpeg"},
-  {"id":210, "cat":"RAITA", "name":"बुंदी रायता / Bundi Raita", "desc":"Gram flour droplets in spiced yogurt", "img":"img/bundi_raita.jpeg"},
-  {"id":211, "cat":"RAITA", "name":"मिक्स फ्रुट रायता / Mix Fruit Raita", "desc":"Mixed fruits in sweet yogurt", "img":"img/mix_fruit_raita.jpeg"},
-  {"id":212, "cat":"RAITA", "name":"आलू रायता / Aloo Raita", "desc":"Boiled potatoes in spiced yogurt", "img":"img/aloo_raita.jpeg"},
-  {"id":213, "cat":"RAITA", "name":"वॉटरमेलन रायता / Watermelon Raita", "desc":"Watermelon in flavored yogurt", "img":"img/watermelon_raita.jpeg"},
-  {"id":214, "cat":"RAITA", "name":"कोशिंबीर / Koshimbir", "desc":"Traditional Maharashtrian salad in yogurt", "img":"img/koshimbir.jpeg"},
-  {"id":215, "cat":"RAITA", "name":"मठ्ठा / Mattha", "desc":"Spiced buttermilk", "img":"img/mattha.jpeg"},
-  {"id":216, "cat":"MUKHWAS", "name":"बडी सोप / Badishep", "desc":"Fennel seeds mouth freshener", "img":"img/badishep.jpeg"},
-  {"id":217, "cat":"MUKHWAS", "name":"मसाला पान / Masala Paan", "desc":"Sweet betel leaf preparation", "img":"img/masala_paan.jpeg"},
-  {"id":218, "cat":"PACKAGE", "name":"नॉर्मल मेनू / Normal Menu", "desc":"Dry Veg, Dal, Liquid Veg, Rice, Sweet, Roti/Puri, Namkeen, Chutney, Papad, Salad, Pickle, Water", "img":"img/normal_menu.jpeg"},
-  {"id":219, "cat":"PACKAGE", "name":"मिडीयम मेनू / Medium Menu", "desc":"Welcome Drink, Starter, Dry Veg, Dal, Liquid Veg, Rice, Sweet, Chutney, Roti/Puri, Namkeen, Papad, Salad, Pickle, Mukhwas", "img":"img/medium_menu.jpeg"},
-  {"id":220, "cat":"PACKAGE", "name":"स्पेशल मेनू / Special Menu", "desc":"Welcome Drink, Starters, South Indian, Chinese, Ice Cream, Paan, Dry Veg, Dal, Liquid Veg, Rice, 2 Sweets, Roti/Puri, Namkeen, Salad, Mukhwas", "img":"img/special_menu.jpeg"},
+
+
+    const nonVegMenu = [
+  {"id":128, "cat":"SWEETS", "name":"मावा बर्फी / Mawa Barfi", "desc":"Sweet milk fudge", "img":"img/mawa_barfi.jpg"},
+  {"id":129, "cat":"SWEETS", "name":"चॉकलेट बर्फी / Chocolate Barfi", "desc":"Chocolate flavored sweet", "img":"img/chocolate_barfi.jpg"},
+  {"id":130, "cat":"SWEETS", "name":"अंजीर बर्फी / Anjeer Barfi", "desc":"Fig flavored sweet", "img":"img/anjeer_barfi.jpg"},
+  {"id":131, "cat":"SWEETS", "name":"खोबरा बर्फी / Khobra Barfi", "desc":"Coconut fudge", "img":"img/khobra_barfi.jpg"},
+  {"id":132, "cat":"SWEETS", "name":"तिरंगा बर्फी / Tiranga Barfi", "desc":"Tri-colored sweet", "img":"img/tiranga_barfi.jpg"},
+  {"id":133, "cat":"SWEETS", "name":"बदाम बर्फी / Badam Barfi", "desc":"Almond sweet fudge", "img":"img/badam_barfi.jpg"},
+  {"id":134, "cat":"SWEETS", "name":"काजू बर्फी / Kaju Barfi", "desc":"Cashew sweet fudge", "img":"img/kaju_barfi.jpg"},
+  {"id":135, "cat":"SWEETS", "name":"पिस्ता बर्फी / Pista Barfi", "desc":"Pistachio sweet", "img":"img/pista_barfi.jpg"},
+  {"id":136, "cat":"SWEETS", "name":"पेढा / Pedha", "desc":"Sweet milk solid ball", "img":"img/pedha.jpg"},
+  {"id":137, "cat":"SWEETS", "name":"केसरी पेढा / Kesari Pedha", "desc":"Saffron flavored pedha", "img":"img/kesari_pedha.jpg"},
+  {"id":138, "cat":"SWEETS", "name":"पिस्ता पेढा / Pista Pedha", "desc":"Pistachio flavored pedha", "img":"img/pista_pedha.jpg"},
+  {"id":139, "cat":"SWEETS", "name":"काजू कतली / Kaju Katli", "desc":"Classic cashew sweet", "img":"img/kaju_katli.jpg"},
+  {"id":140, "cat":"SWEETS", "name":"सिताफल रबडी / Sitafal Rabdi", "desc":"Custard apple sweet milk", "img":"img/sitafal_rabdi.jpg"},
+  {"id":141, "cat":"SWEETS", "name":"अंगुरी रस-मलाई / Angoori Rasmalai", "desc":"Mini cottage cheese balls in sweet milk", "img":"img/angoori_rasmalai.jpg"},
+  {"id":142, "cat":"SWEETS", "name":"बासुंदी / Basundi", "desc":"Thickened sweet milk", "img":"img/basundi.jpg"},
+  {"id":143, "cat":"SWEETS", "name":"रस-मलाई / Rasmalai", "desc":"Cottage cheese in sweet milk", "img":"img/rasmalai.jpg"},
+  {"id":144, "cat":"SWEETS", "name":"बादाम रोल / Badam Roll", "desc":"Almond sweet roll", "img":"img/badam_roll.jpg"},
+  {"id":145, "cat":"SWEETS", "name":"काजू रोल / Kaju Roll", "desc":"Cashew sweet roll", "img":"img/kaju_roll.jpg"},
+  {"id":146, "cat":"SWEETS", "name":"लापसी / Lapsi", "desc":"Sweet broken wheat dish", "img":"img/lapsi.jpg"},
+  {"id":147, "cat":"SWEETS", "name":"डॉलर जिलेबी / Dollar Jalebi", "desc":"Mini crispy syrupy sweet", "img":"img/dollar_jalebi.jpg"},
+  {"id":148, "cat":"SWEETS", "name":"जिलेबी / Jalebi", "desc":"Crispy syrupy sweet", "img":"img/jalebi.jpg"},
+  {"id":149, "cat":"SWEETS", "name":"इमरती / Imarti", "desc":"Flower shaped syrupy sweet", "img":"img/imarti.jpg"},
+  {"id":150, "cat":"SWEETS", "name":"कलाकंद / Kalakand", "desc":"Milk milk sweet", "img":"img/kalakand.jpg"},
+  {"id":151, "cat":"SWEETS", "name":"बुंदी / Bundi", "desc":"Sweet gram flour droplets", "img":"img/bundi.jpg"},
+  {"id":152, "cat":"SWEETS", "name":"बुंदी लड्डू / Bundi Ladoo", "desc":"Sweet droplet balls", "img":"img/bundi_ladoo.jpg"},
+  {"id":153, "cat":"SWEETS", "name":"मोतीचूर लड्डू / Motichur Ladoo", "desc":"Fine sweet droplet balls", "img":"img/motichur_ladoo.jpg"},
+  {"id":154, "cat":"SWEETS", "name":"चमचम / Chamcham", "desc":"Traditional Bengali sweet", "img":"img/chamcham.jpg"},
+  {"id":155, "cat":"SWEETS", "name":"रसगुल्ला / Rasgulla", "desc":"Spongy sweet balls in syrup", "img":"img/rasgulla.jpg"},
+  {"id":156, "cat":"SWEETS", "name":"काला जामुन / Kala Jamun", "desc":"Dark fried sweet dumplings", "img":"img/kala_jamun.jpg"},
+  {"id":157, "cat":"SWEETS", "name":"गुलाब जामुन / Gulab Jamun", "desc":"Soft milk dumplings in syrup", "img":"img/gulab_jamun.jpg"},
+  {"id":158, "cat":"SWEETS", "name":"गुलाब झारी / Gulab Jhari", "desc":"Traditional sweet", "img":"img/gulab_jhari.jpg"},
+  {"id":159, "cat":"SWEETS", "name":"आम-रस / Aamras", "desc":"Sweet mango pulp", "img":"img/aamras.jpg"},
+  {"id":160, "cat":"SWEETS", "name":"दिल जानी / Dil Jani", "desc":"Traditional sweet dish", "img":"img/dil_jani.jpg"},
+  {"id":161, "cat":"SWEETS", "name":"हलवा / Halwa", "desc":"Sweet Indian pudding", "img":"img/halwa.jpg"},
+  {"id":162, "cat":"SWEETS", "name":"मुंग-हलवा / Moong Halwa", "desc":"Yellow lentil sweet pudding", "img":"img/moong_halwa.jpg"},
+  {"id":163, "cat":"SWEETS", "name":"पाईनॅप्पल हलवा / Pineapple Halwa", "desc":"Pineapple flavored sweet pudding", "img":"img/pineapple_halwa.jpg"},
+  {"id":164, "cat":"SWEETS", "name":"मिक्स फ्रुट हलवा / Mix Fruit Halwa", "desc":"Mixed fruit sweet pudding", "img":"img/mix_fruit_halwa.jpg"},
+  {"id":165, "cat":"SWEETS", "name":"बदाम हलवा / Badam Halwa", "desc":"Almond sweet pudding", "img":"img/badam_halwa.jpg"},
+  {"id":166, "cat":"SWEETS", "name":"गाजर हलवा / Gajar Halwa", "desc":"Carrot sweet pudding", "img":"img/gajar_halwa.jpg"},
+  {"id":167, "cat":"SWEETS", "name":"दुधी हलवा / Dudhi Halwa", "desc":"Bottle gourd sweet pudding", "img":"img/dudhi_halwa.jpg"},
+  {"id":168, "cat":"SWEETS", "name":"ड्राय-फ्रुट जामुन / Dry Fruit Jamun", "desc":"Dry fruit stuffed sweet dumplings", "img":"img/dry_fruit_jamun.jpg"},
+  {"id":169, "cat":"SWEETS", "name":"मोहन थाल / Mohan Thal", "desc":"Gram flour fudge", "img":"img/mohan_thal.jpg"},
+  {"id":170, "cat":"SWEETS", "name":"मैसुर पाक / Mysore Pak", "desc":"Rich gram flour sweet", "img":"img/mysore_pak.jpg"},
+  {"id":171, "cat":"CHINESE", "name":"व्हेज फ्राईड राईस / Veg Fried Rice", "desc":"Stir fried vegetable rice", "img":"img/veg_fried_rice.jpg"},
+  {"id":172, "cat":"CHINESE", "name":"मशरूम राईस / Mushroom Rice", "desc":"Stir fried rice with mushrooms", "img":"img/mushroom_rice.jpg"},
+  {"id":173, "cat":"CHINESE", "name":"मंचुरियन राईस / Manchurian Rice", "desc":"Fried rice with manchurian balls", "img":"img/manchurian_rice.jpg"},
+  {"id":174, "cat":"CHINESE", "name":"सिंगापुरी फ्रा. राईस / Singapore Fried Rice", "desc":"Spicy and tangy fried rice", "img":"img/singapore_fried_rice.jpg"},
+  {"id":175, "cat":"CHINESE", "name":"ट्रिपल फ्रा. राईस / Triple Fried Rice", "desc":"Combination of rice, noodles and gravy", "img":"img/triple_fried_rice.jpg"},
+  {"id":176, "cat":"CHINESE", "name":"व्हेज हाक्का नुडल्स / Veg Hakka Noodles", "desc":"Classic stir fried noodles", "img":"img/veg_hakka_noodles.jpg"},
+  {"id":177, "cat":"CHINESE", "name":"मशरूम नुडल्स / Mushroom Noodles", "desc":"Stir fried noodles with mushrooms", "img":"img/mushroom_noodles.jpg"},
+  {"id":178, "cat":"CHINESE", "name":"सेजवान नुडल्स / Schezwan Noodles", "desc":"Spicy stir fried noodles", "img":"img/schezwan_noodles.jpg"},
+  {"id":179, "cat":"CHINESE", "name":"सिंगापुरी नुडल्स / Singapore Noodles", "desc":"Spicy and tangy noodles", "img":"img/singapore_noodles.jpg"},
+  {"id":180, "cat":"CHINESE", "name":"अमेरिकन चॉप्सी / American Chopsuey", "desc":"Crispy noodles with sweet and sour gravy", "img":"img/american_chopsuey.jpg"},
+  {"id":181, "cat":"CHINESE", "name":"व्हेज मंचुरियन / Veg Manchurian", "desc":"Fried vegetable balls in dark sauce", "img":"img/veg_manchurian.jpg"},
+  {"id":182, "cat":"CHINESE", "name":"मशरूम मंचुरियन / Mushroom Manchurian", "desc":"Fried mushrooms in dark sauce", "img":"img/mushroom_manchurian.jpg"},
+  {"id":183, "cat":"CHINESE", "name":"गोबी मंचुरियन / Gobi Manchurian", "desc":"Fried cauliflower in dark sauce", "img":"img/gobi_manchurian.jpg"},
+  {"id":184, "cat":"CHINESE", "name":"पनीर मंचुरियन / Paneer Manchurian", "desc":"Fried paneer in dark sauce", "img":"img/paneer_manchurian.jpg"},
+  {"id":185, "cat":"CHINESE", "name":"व्हेज ६५ / Veg 65", "desc":"Spicy deep fried vegetable chunks", "img":"img/veg_65.jpg"},
+  {"id":186, "cat":"CHINESE", "name":"पनीर ६५ / Paneer 65", "desc":"Spicy deep fried paneer chunks", "img":"img/paneer_65.jpg"},
+  {"id":187, "cat":"CHINESE", "name":"स्प्रिंग रोल / Spring Roll", "desc":"Crispy stuffed rolls", "img":"img/spring_roll.jpg"},
+  {"id":188, "cat":"CHINESE", "name":"चिझ बॉल / Cheese Balls", "desc":"Crispy fried cheese balls", "img":"img/cheese_balls.jpg"},
+  {"id":189, "cat":"CHINESE", "name":"मटर रोल / Matar Roll", "desc":"Crispy rolls stuffed with green peas", "img":"img/matar_roll.jpg"},
+  {"id":190, "cat":"CHINESE", "name":"पनीर स्टिक / Paneer Stick", "desc":"Crispy fried paneer sticks", "img":"img/paneer_stick.jpg"},
+  {"id":191, "cat":"CHINESE", "name":"व्हेज लॉलीपॉप / Veg Lollipop", "desc":"Crispy fried vegetable balls on stick", "img":"img/veg_lollipop.jpg"},
+  {"id":192, "cat":"CHINESE", "name":"पनीर लिफाफा / Paneer Lifafa", "desc":"Stuffed paneer parcel", "img":"img/paneer_lifafa.jpg"},
+  {"id":193, "cat":"CHINESE", "name":"रिमझीम / Rimjhim", "desc":"Special chinese starter", "img":"img/rimjhim.jpg"},
+  {"id":194, "cat":"CHINESE", "name":"पनीर चिल्ली / Paneer Chilli", "desc":"Spicy stir fried paneer", "img":"img/paneer_chilli.jpg"},
+  {"id":195, "cat":"CHINESE", "name":"क्रिस्पी बेबी कॉर्न / Crispy Baby Corn", "desc":"Deep fried crispy baby corn", "img":"img/crispy_baby_corn.jpg"},
+  {"id":196, "cat":"CHINESE", "name":"हराभरा कबाब / Hara Bhara Kabab", "desc":"Green vegetable and spinach patty", "img":"img/hara_bhara_kabab.jpg"},
+  {"id":197, "cat":"CHINESE", "name":"व्हेज कटलेट / Veg Cutlet", "desc":"Crispy mixed vegetable patty", "img":"img/veg_cutlet.jpg"},
+  {"id":198, "cat":"CHINESE", "name":"व्हेज क्रिस्पी / Veg Crispy", "desc":"Assorted crispy fried vegetables", "img":"img/veg_crispy.jpg"},
+  {"id":199, "cat":"CHINESE", "name":"व्हेज साठे / Veg Satay", "desc":"Grilled vegetable skewers with peanut sauce", "img":"img/veg_satay.jpg"},
+  {"id":200, "cat":"CHINESE", "name":"हनी चिल्ली पोटाटो / Honey Chilli Potato", "desc":"Sweet and spicy crispy potatoes", "img":"img/honey_chilli_potato.jpg"},
+  {"id":201, "cat":"ICE CREAM", "name":"व्हॅनिला / Vanilla", "desc":"Classic vanilla ice cream", "img":"img/vanilla_ice_cream.jpg"},
+  {"id":202, "cat":"ICE CREAM", "name":"स्ट्रॉबेरी / Strawberry", "desc":"Strawberry flavored ice cream", "img":"img/strawberry_ice_cream.jpg"},
+  {"id":203, "cat":"ICE CREAM", "name":"बटर स्कॉच / Butterscotch", "desc":"Butterscotch flavored ice cream", "img":"img/butterscotch_ice_cream.jpg"},
+  {"id":204, "cat":"ICE CREAM", "name":"चॉकलेट / Chocolate", "desc":"Chocolate flavored ice cream", "img":"img/chocolate_ice_cream.jpg"},
+  {"id":205, "cat":"ICE CREAM", "name":"ड्राय-फ्रुट / Dry Fruit", "desc":"Dry fruit mixed ice cream", "img":"img/dry_fruit_ice_cream.jpg"},
+  {"id":206, "cat":"ICE CREAM", "name":"मँगो / Mango", "desc":"Mango flavored ice cream", "img":"img/mango_ice_cream.jpg"},
+  {"id":207, "cat":"RAITA", "name":"दुधी रायता / Dudhi Raita", "desc":"Bottle gourd in spiced yogurt", "img":"img/dudhi_raita.jpg"},
+  {"id":208, "cat":"RAITA", "name":"पायनॅप्पल रायता / Pineapple Raita", "desc":"Pineapple chunks in sweet yogurt", "img":"img/pineapple_raita.jpg"},
+  {"id":209, "cat":"RAITA", "name":"मिक्स व्हेज रायता / Mix Veg Raita", "desc":"Mixed vegetables in spiced yogurt", "img":"img/mix_veg_raita.jpg"},
+  {"id":210, "cat":"RAITA", "name":"बुंदी रायता / Bundi Raita", "desc":"Gram flour droplets in spiced yogurt", "img":"img/bundi_raita.jpg"},
+  {"id":211, "cat":"RAITA", "name":"मिक्स फ्रुट रायता / Mix Fruit Raita", "desc":"Mixed fruits in sweet yogurt", "img":"img/mix_fruit_raita.jpg"},
+  {"id":212, "cat":"RAITA", "name":"आलू रायता / Aloo Raita", "desc":"Boiled potatoes in spiced yogurt", "img":"img/aloo_raita.jpg"},
+  {"id":213, "cat":"RAITA", "name":"वॉटरमेलन रायता / Watermelon Raita", "desc":"Watermelon in flavored yogurt", "img":"img/watermelon_raita.jpg"},
+  {"id":214, "cat":"RAITA", "name":"कोशिंबीर / Koshimbir", "desc":"Traditional Maharashtrian salad in yogurt", "img":"img/koshimbir.jpg"},
+  {"id":215, "cat":"RAITA", "name":"मठ्ठा / Mattha", "desc":"Spiced buttermilk", "img":"img/mattha.jpg"},
+  {"id":216, "cat":"MUKHWAS", "name":"बडी सोप / Badishep", "desc":"Fennel seeds mouth freshener", "img":"img/badishep.jpg"},
+  {"id":217, "cat":"MUKHWAS", "name":"मसाला पान / Masala Paan", "desc":"Sweet betel leaf preparation", "img":"img/masala_paan.jpg"},
+  {"id":218, "cat":"PACKAGE", "name":"नॉर्मल मेनू / Normal Menu", "desc":"Dry Veg, Dal, Liquid Veg, Rice, Sweet, Roti/Puri, Namkeen, Chutney, Papad, Salad, Pickle, Water", "img":"img/normal_menu.jpg"},
+  {"id":219, "cat":"PACKAGE", "name":"मिडीयम मेनू / Medium Menu", "desc":"Welcome Drink, Starter, Dry Veg, Dal, Liquid Veg, Rice, Sweet, Chutney, Roti/Puri, Namkeen, Papad, Salad, Pickle, Mukhwas", "img":"img/medium_menu.jpg"},
+  {"id":220, "cat":"PACKAGE", "name":"स्पेशल मेनू / Special Menu", "desc":"Welcome Drink, Starters, South Indian, Chinese, Ice Cream, Paan, Dry Veg, Dal, Liquid Veg, Rice, 2 Sweets, Roti/Puri, Namkeen, Salad, Mukhwas", "img":"img/special_menu.jpg"},
 
 
 
 
 
-  {"id":221, "cat":"BARBEQUE", "name":"पनीर टिक्का / Paneer Tikka", "desc":"Grilled marinated paneer chunks", "img":"img/paneer_tikka.jpeg"},
-  {"id":222, "cat":"BARBEQUE", "name":"पायनॅप्पल टिक्का / Pineapple Tikka", "desc":"Grilled spiced pineapple", "img":"img/pineapple_tikka.jpeg"},
-  {"id":223, "cat":"BARBEQUE", "name":"सोया चाप टिक्का / Soya Chaap Tikka", "desc":"Grilled marinated soya chaap", "img":"img/soya_chaap_tikka.jpeg"},
-  {"id":224, "cat":"BARBEQUE", "name":"पनीर मलाई टिक्का / Paneer Malai Tikka", "desc":"Creamy grilled paneer", "img":"img/paneer_malai_tikka.jpeg"},
-  {"id":225, "cat":"BARBEQUE", "name":"व्हेज सीक कबाब / Veg Seekh Kabab", "desc":"Minced vegetable skewers", "img":"img/veg_seekh_kabab.jpeg"},
-  {"id":226, "cat":"BARBEQUE", "name":"तंदुरी मोमोज / Tandoori Momos", "desc":"Tandoor baked stuffed dumplings", "img":"img/tandoori_momos.jpeg"},
-  {"id":227, "cat":"BARBEQUE", "name":"काश्मिरी पहाडी आलू / Kashmiri Pahadi Aloo", "desc":"Spiced roasted baby potatoes", "img":"img/kashmiri_pahadi_aloo.jpeg"},
-  {"id":228, "cat":"BARBEQUE", "name":"मशरूम टिक्का / Mushroom Tikka", "desc":"Grilled marinated mushrooms", "img":"img/mushroom_tikka.jpeg"},
-  {"id":229, "cat":"CHAAT", "name":"पानीपुरी / Pani Puri", "desc":"Crispy puris with tangy water", "img":"img/pani_puri.jpeg"},
-  {"id":230, "cat":"CHAAT", "name":"आलू चाट / Aloo Chaat", "desc":"Spicy potato snack", "img":"img/aloo_chaat.jpeg"},
-  {"id":231, "cat":"CHAAT", "name":"आलू टिक्की / Aloo Tikki", "desc":"Crispy spiced potato patties", "img":"img/aloo_tikki.jpeg"},
-  {"id":232, "cat":"CHAAT", "name":"समोसा चाट / Samosa Chaat", "desc":"Crushed samosa with chutneys", "img":"img/samosa_chaat.jpeg"},
-  {"id":233, "cat":"CHAAT", "name":"भेळ / Bhel", "desc":"Puffed rice tangy snack", "img":"img/bhel.jpeg"},
-  {"id":234, "cat":"CHAAT", "name":"रगडा पेटीस / Ragda Pattice", "desc":"Potato patties with white peas curry", "img":"img/ragda_pattice.jpeg"},
-  {"id":235, "cat":"CHAAT", "name":"शेव-पुरी / Shev Puri", "desc":"Crispy flat puris with toppings", "img":"img/shev_puri.jpeg"},
-  {"id":236, "cat":"CHAAT", "name":"दही पुरी / Dahi Puri", "desc":"Puris stuffed with sweet yogurt", "img":"img/dahi_puri.jpeg"},
-  {"id":237, "cat":"CHAAT", "name":"कच्ची दाबेली / Kacchi Dabeli", "desc":"Spicy potato filling in bun", "img":"img/kacchi_dabeli.jpeg"},
-  {"id":238, "cat":"CHAAT", "name":"बिकानेर चाट / Bikaner Chaat", "desc":"Traditional Bikaneri snack", "img":"img/bikaner_chaat.jpeg"},
-  {"id":239, "cat":"CHAAT", "name":"यु.पी. चाट / U.P. Chaat", "desc":"Uttar Pradesh style spicy chaat", "img":"img/up_chaat.jpeg"},
-  {"id":240, "cat":"CHAAT", "name":"रगडा समोसा / Ragda Samosa", "desc":"Samosa topped with peas curry", "img":"img/ragda_samosa.jpeg"},
-  {"id":241, "cat":"CHAAT", "name":"पाव भाजी / Pav Bhaji", "desc":"Spicy mashed veg with buttered bread", "img":"img/pav_bhaji.jpeg"},
-  {"id":242, "cat":"CHAAT", "name":"जैन पाव-भाजी / Jain Pav Bhaji", "desc":"Pav bhaji without onion/garlic", "img":"img/jain_pav_bhaji.jpeg"},
-  {"id":243, "cat":"CHAAT", "name":"खडा पाव-भाजी / Khada Pav Bhaji", "desc":"Chunky style pav bhaji", "img":"img/khada_pav_bhaji.jpeg"},
-  {"id":244, "cat":"CHAAT", "name":"पिझ्झा / बर्गर / Pizza / Burger", "desc":"Fast food snacks", "img":"img/pizza_burger.jpeg"},
-  {"id":245, "cat":"CHAAT", "name":"छोले भटुरे / Chole Bhature", "desc":"Spicy chickpeas with fried bread", "img":"img/chole_bhature.jpeg"},
-  {"id":246, "cat":"CHAAT", "name":"पॉपकॉर्न / Popcorn", "desc":"Freshly popped corn", "img":"img/popcorn.jpeg"},
-  {"id":247, "cat":"CHAAT", "name":"दही भल्ले / Dahi Bhalle", "desc":"Lentil fritters in sweet yogurt", "img":"img/dahi_bhalle.jpeg"},
-  {"id":248, "cat":"CHAAT", "name":"बास्केट चाट / Basket Chaat", "desc":"Edible potato basket chaat", "img":"img/basket_chaat.jpeg"},
-  {"id":249, "cat":"JUICE & SHAKES", "name":"पेरू चिल्ली ज्युस / Guava Chilli Juice", "desc":"Spicy guava juice", "img":"img/guava_chilli_juice.jpeg"},
-  {"id":250, "cat":"JUICE & SHAKES", "name":"फ्रुट पंच ज्युस / Fruit Punch Juice", "desc":"Mixed fruit juice", "img":"img/fruit_punch.jpeg"},
-  {"id":251, "cat":"JUICE & SHAKES", "name":"कटरीना ज्युस / Katrina Juice", "desc":"Special mixed juice", "img":"img/katrina_juice.jpeg"},
-  {"id":252, "cat":"JUICE & SHAKES", "name":"स्वित्झर्लंड ज्युस / Switzerland Juice", "desc":"Special exotic juice", "img":"img/switzerland_juice.jpeg"},
-  {"id":253, "cat":"JUICE & SHAKES", "name":"मोसंबी ज्युस / Mosambi Juice", "desc":"Sweet lime juice", "img":"img/mosambi_juice.jpeg"},
-  {"id":254, "cat":"JUICE & SHAKES", "name":"ऑरेंज ज्युस / Orange Juice", "desc":"Fresh orange juice", "img":"img/orange_juice.jpeg"},
-  {"id":255, "cat":"JUICE & SHAKES", "name":"वॉटरमेलन ज्युस / Watermelon Juice", "desc":"Fresh watermelon juice", "img":"img/watermelon_juice.jpeg"},
-  {"id":256, "cat":"JUICE & SHAKES", "name":"पायनॅप्पल ज्युस / Pineapple Juice", "desc":"Fresh pineapple juice", "img":"img/pineapple_juice.jpeg"},
-  {"id":257, "cat":"JUICE & SHAKES", "name":"ॲप्पल ज्युस / Apple Juice", "desc":"Fresh apple juice", "img":"img/apple_juice.jpeg"},
-  {"id":258, "cat":"JUICE & SHAKES", "name":"चिकू मिल्क शेक / Chikoo Milkshake", "desc":"Sapodilla blended with milk", "img":"img/chikoo_milkshake.jpeg"},
-  {"id":259, "cat":"JUICE & SHAKES", "name":"बनाना मिल्क शेक / Banana Milkshake", "desc":"Banana blended with milk", "img":"img/banana_milkshake.jpeg"},
-  {"id":260, "cat":"JUICE & SHAKES", "name":"मँगो मिल्क शेक / Mango Milkshake", "desc":"Mango blended with milk", "img":"img/mango_milkshake.jpeg"},
-  {"id":261, "cat":"JUICE & SHAKES", "name":"स्ट्रॉबेरी मिल्क शेक / Strawberry Milkshake", "desc":"Strawberry blended with milk", "img":"img/strawberry_milkshake.jpeg"},
-  {"id":262, "cat":"JUICE & SHAKES", "name":"रोझ मिल्क शेक / Rose Milkshake", "desc":"Rose flavored milkshake", "img":"img/rose_milkshake.jpeg"},
-  {"id":263, "cat":"WELCOME DRINK", "name":"वर्जिन मोजितो / Virgin Mojito", "desc":"Mint and lime refreshing drink", "img":"img/virgin_mojito.jpeg"},
-  {"id":264, "cat":"WELCOME DRINK", "name":"ग्रिन मोजितो / Green Mojito", "desc":"Green mint flavored mojito", "img":"img/green_mojito.jpeg"},
-  {"id":265, "cat":"WELCOME DRINK", "name":"लेमन मोजितो / Lemon Mojito", "desc":"Lemon flavored mojito", "img":"img/lemon_mojito.jpeg"},
-  {"id":266, "cat":"WELCOME DRINK", "name":"जिंजर मोजितो / Ginger Mojito", "desc":"Ginger flavored mojito", "img":"img/ginger_mojito.jpeg"},
-  {"id":267, "cat":"WELCOME DRINK", "name":"जिरो सोडा / Jeera Soda", "desc":"Cumin flavored fizzy drink", "img":"img/jeera_soda.jpeg"},
-  {"id":268, "cat":"WELCOME DRINK", "name":"ग्रीन लगुन / Green Lagoon", "desc":"Green sweet mocktail", "img":"img/green_lagoon.jpeg"},
-  {"id":269, "cat":"WELCOME DRINK", "name":"ब्लु लगुन / Blue Lagoon", "desc":"Blue curacao mocktail", "img":"img/blue_lagoon.jpeg"},
-  {"id":270, "cat":"WELCOME DRINK", "name":"पिना कोलाडा / Pina Colada", "desc":"Pineapple and coconut mocktail", "img":"img/pina_colada.jpeg"},
-  {"id":271, "cat":"WELCOME DRINK", "name":"रोझ मॉकटेल / Rose Mocktail", "desc":"Rose flavored mocktail", "img":"img/rose_mocktail.jpeg"},
-  {"id":272, "cat":"WELCOME DRINK", "name":"खस मॉकटेल / Khus Mocktail", "desc":"Vetiver flavored mocktail", "img":"img/khus_mocktail.jpeg"},
-  {"id":273, "cat":"PAPAD", "name":"रोस्टेड पापड / Roasted Papad", "desc":"Dry roasted papad", "img":"img/roasted_papad.jpeg"},
-  {"id":274, "cat":"PAPAD", "name":"फ्राय पापड / Fried Papad", "desc":"Deep fried papad", "img":"img/fried_papad.jpeg"},
-  {"id":275, "cat":"PAPAD", "name":"डिस्को पापड / Disco Papad", "desc":"Mini crispy papad", "img":"img/disco_papad.jpeg"},
-  {"id":276, "cat":"PAPAD", "name":"मसाला पापड / Masala Papad", "desc":"Papad topped with spiced onions/tomatoes", "img":"img/masala_papad.jpeg"},
-  {"id":277, "cat":"PAPAD", "name":"पापड भेळ / Papad Bhel", "desc":"Crushed papad snack mix", "img":"img/papad_bhel.jpeg"},
-  {"id":278, "cat":"PAPAD", "name":"खिचिया / Khichiya", "desc":"Rice flour crispy papad", "img":"img/khichiya.jpeg"},
-  {"id":279, "cat":"NAMKEEN", "name":"शेव / Shev", "desc":"Crispy gram flour noodles", "img":"img/shev.jpeg"},
-  {"id":280, "cat":"NAMKEEN", "name":"शेवदाल / Shev Dal", "desc":"Crispy shev with fried lentils", "img":"img/shev_dal.jpeg"},
-  {"id":281, "cat":"NAMKEEN", "name":"मक्का चिवडा / Makka Chivda", "desc":"Corn flakes savory snack", "img":"img/makka_chivda.jpeg"},
-  {"id":282, "cat":"NAMKEEN", "name":"सांबुदाणा चिवडा / Sabudana Chivda", "desc":"Sago pearls savory snack", "img":"img/sabudana_chivda.jpeg"},
-  {"id":283, "cat":"NAMKEEN", "name":"दालमुठ / Dalmoth", "desc":"Spicy fried lentil snack", "img":"img/dalmoth.jpeg"},
-  {"id":284, "cat":"NAMKEEN", "name":"गाठीया / Gathiya", "desc":"Thick gram flour sticks", "img":"img/gathiya.jpeg"},
-  {"id":285, "cat":"NAMKEEN", "name":"फरसाण / Farsan", "desc":"Mixed savory snack", "img":"img/farsan.jpeg"},
-  {"id":286, "cat":"NAMKEEN", "name":"लहसुन शेव / Lahsun Shev", "desc":"Garlic flavored crispy shev", "img":"img/lahsun_shev.jpeg"},
-  {"id":287, "cat":"NAMKEEN", "name":"पापडी / Papdi", "desc":"Crispy flat savory crackers", "img":"img/papdi.jpeg"},
-  {"id":288, "cat":"SNACKS", "name":"इडली सांबर / Idli Sambar", "desc":"Steamed rice cakes with lentil stew", "img":"img/idli_sambar.jpeg"},
-  {"id":289, "cat":"SNACKS", "name":"समोसा / Samosa", "desc":"Crispy potato stuffed pastry", "img":"img/samosa.jpeg"},
-  {"id":290, "cat":"SNACKS", "name":"मिनी समोसा / Mini Samosa", "desc":"Bite sized savory pastry", "img":"img/mini_samosa.jpeg"},
-  {"id":291, "cat":"SNACKS", "name":"मसाला डोसा / Masala Dosa", "desc":"Crispy crepe with potato filling", "img":"img/masala_dosa.jpeg"},
-  {"id":292, "cat":"SNACKS", "name":"उत्ताप्पा / Uttappa", "desc":"Thick savory pancake", "img":"img/uttappa.jpeg"},
-  {"id":293, "cat":"SNACKS", "name":"उडीद वडा / Udid Vada", "desc":"Fried lentil savory donuts", "img":"img/udid_vada.jpeg"},
-  {"id":294, "cat":"SNACKS", "name":"उपिट/पोहे / Upit/Poha", "desc":"Semolina/Flattened rice breakfast", "img":"img/upit_poha.jpeg"},
-  {"id":295, "cat":"SNACKS", "name":"सॅन्डविच / Sandwich", "desc":"Bread stuffed with veggies", "img":"img/sandwich.jpeg"},
-  {"id":296, "cat":"SNACKS", "name":"कांदा भजी / Kanda Bhaji", "desc":"Crispy onion fritters", "img":"img/kanda_bhaji.jpeg"},
-  {"id":297, "cat":"SNACKS", "name":"गोल भजी / Gol Bhaji", "desc":"Round crispy fritters", "img":"img/gol_bhaji.jpeg"},
-  {"id":298, "cat":"SNACKS", "name":"पालक भजी / Palak Bhaji", "desc":"Spinach fritters", "img":"img/palak_bhaji.jpeg"},
-  {"id":299, "cat":"SNACKS", "name":"कोथिंबीर वडी / Kothimbir Vadi", "desc":"Coriander savory cakes", "img":"img/kothimbir_vadi.jpeg"},
-  {"id":300, "cat":"SNACKS", "name":"खमंग ढोकला / Khamang Dhokla", "desc":"Spongy gram flour snack", "img":"img/khamang_dhokla.jpeg"},
-  {"id":301, "cat":"SNACKS", "name":"मिक्स पकोडा / Mix Pakoda", "desc":"Mixed vegetable fritters", "img":"img/mix_pakoda.jpeg"},
-  {"id":302, "cat":"SNACKS", "name":"वडा-पाव / Vada Pav", "desc":"Potato patty in a bun", "img":"img/vada_pav.jpeg"},
-  {"id":303, "cat":"SNACKS", "name":"शाबुदाणा वडा / Sabudana Vada", "desc":"Fried sago pearls patties", "img":"img/sabudana_vada.jpeg"},
-  {"id":304, "cat":"CHUTNEY", "name":"ठेचा / Thecha", "desc":"Spicy crushed chilli and garlic", "img":"img/thecha.jpeg"},
-  {"id":305, "cat":"CHUTNEY", "name":"ग्रीन चटणी / Green Chutney", "desc":"Mint and coriander dip", "img":"img/green_chutney.jpeg"},
-  {"id":306, "cat":"CHUTNEY", "name":"शेंगदाणा चटणी / Shengdana Chutney", "desc":"Dry peanut chutney", "img":"img/shengdana_chutney.jpeg"},
-  {"id":307, "cat":"CHUTNEY", "name":"लहसुन चटणी / Lahsun Chutney", "desc":"Spicy garlic chutney", "img":"img/lahsun_chutney.jpeg"},
-  {"id":308, "cat":"CHUTNEY", "name":"पुदिना चटणी / Pudina Chutney", "desc":"Fresh mint chutney", "img":"img/pudina_chutney.jpeg"},
-  {"id":309, "cat":"CHUTNEY", "name":"खजुर चटणी / Khajur Chutney", "desc":"Sweet date and tamarind dip", "img":"img/khajur_chutney.jpeg"},
-  {"id":310, "cat":"PICKLES", "name":"आम आचार / Aam Achar", "desc":"Spicy mango pickle", "img":"img/aam_achar.jpeg"},
-  {"id":311, "cat":"PICKLES", "name":"मिक्स आचार / Mix Achar", "desc":"Mixed vegetable pickle", "img":"img/mix_achar.jpeg"},
-  {"id":312, "cat":"PICKLES", "name":"आवला आचार / Amla Achar", "desc":"Gooseberry pickle", "img":"img/amla_achar.jpeg"},
-  {"id":313, "cat":"PICKLES", "name":"मिरची आचार / Mirchi Achar", "desc":"Spicy green chilli pickle", "img":"img/mirchi_achar.jpeg"},
-  {"id":314, "cat":"PICKLES", "name":"लिंबु आचार / Limbu Achar", "desc":"Tangy lemon pickle", "img":"img/limbu_achar.jpeg"},
-  {"id":315, "cat":"PICKLES", "name":"आद्रक लहसुन / Adrak Lahsun", "desc":"Ginger and garlic pickle", "img":"img/adrak_lahsun_pickle.jpeg"},
-  {"id":316, "cat":"BEVERAGES", "name":"चहा / Tea", "desc":"Hot brewed tea", "img":"img/tea.jpeg"},
-  {"id":317, "cat":"BEVERAGES", "name":"कॉफी / Coffee", "desc":"Hot brewed coffee", "img":"img/coffee.jpeg"},
-  {"id":318, "cat":"BEVERAGES", "name":"लस्सी / Lassi", "desc":"Sweetened yogurt drink", "img":"img/lassi.jpeg"},
-  {"id":319, "cat":"BEVERAGES", "name":"बटर मिल्क / Butter Milk", "desc":"Spiced thin yogurt drink", "img":"img/butter_milk.jpeg"},
-  {"id":320, "cat":"BEVERAGES", "name":"रसना / Rasna", "desc":"Fruit flavored soft drink", "img":"img/rasna.jpeg"},
-  {"id":321, "cat":"BEVERAGES", "name":"लिंबु शर्बत / Limbu Sharbat", "desc":"Sweet lime water", "img":"img/limbu_sharbat.jpeg"},
-  {"id":322, "cat":"SOUP", "name":"टोमॅटो सुप / Tomato Soup", "desc":"Warm tomato broth", "img":"img/tomato_soup_3.jpeg"},
-  {"id":323, "cat":"SOUP", "name":"पालक सुप / Palak Soup", "desc":"Warm spinach broth", "img":"img/palak_soup_2.jpeg"},
-  {"id":324, "cat":"SOUP", "name":"व्हेज मंचाव सुप / Veg Manchow Soup", "desc":"Spicy dark chinese soup", "img":"img/veg_manchow_soup.jpeg"},
-  {"id":325, "cat":"SOUP", "name":"हॉट ॲण्ड सॉर सुप / Hot & Sour Soup", "desc":"Spicy and tangy soup", "img":"img/hot_and_sour_soup.jpeg"},
-  {"id":326, "cat":"SOUP", "name":"व्हेज सुप / Veg Soup", "desc":"Clear vegetable broth", "img":"img/veg_soup.jpeg"},
-  {"id":327, "cat":"SOUP", "name":"स्विट कॉर्न सुप / Sweet Corn Soup", "desc":"Creamy corn and veg soup", "img":"img/sweet_corn_soup.jpeg"},
-  {"id":328, "cat":"VEG GRAVY", "name":"पनीर टिक्का मसाला / Paneer Tikka Masala", "desc":"Grilled paneer in rich gravy", "img":"img/paneer_tikka_masala.jpeg"},
-  {"id":329, "cat":"VEG GRAVY", "name":"पनीर बटर मसाला / Paneer Butter Masala", "desc":"Paneer in creamy tomato gravy", "img":"img/paneer_butter_masala.jpeg"},
-  {"id":330, "cat":"VEG GRAVY", "name":"मटर पनीर / Matar Paneer", "desc":"Peas and paneer gravy", "img":"img/matar_paneer_2.jpeg"},
-  {"id":331, "cat":"VEG GRAVY", "name":"पालक पनीर / Palak Paneer", "desc":"Paneer in spinach gravy", "img":"img/palak_paneer_2.jpeg"},
-  {"id":332, "cat":"VEG GRAVY", "name":"पनीर मशरूम / Paneer Mushroom", "desc":"Paneer and mushrooms in gravy", "img":"img/paneer_mushroom.jpeg"},
-  {"id":333, "cat":"VEG GRAVY", "name":"पनीर भुर्जी / Paneer Bhurji", "desc":"Scrambled spiced paneer", "img":"img/paneer_bhurji.jpeg"},
-  {"id":334, "cat":"VEG GRAVY", "name":"शाही पनीर / Shahi Paneer", "desc":"Paneer in rich cashew gravy", "img":"img/shahi_paneer.jpeg"},
-  {"id":335, "cat":"VEG GRAVY", "name":"पनीर मसाला / Paneer Masala", "desc":"Spicy paneer gravy", "img":"img/paneer_masala_2.jpeg"},
-  {"id":336, "cat":"VEG GRAVY", "name":"पनीर कोफ्ता / Paneer Kofta", "desc":"Paneer dumplings in gravy", "img":"img/paneer_kofta.jpeg"},
-  {"id":337, "cat":"VEG GRAVY", "name":"पनीर काजू / Paneer Kaju", "desc":"Paneer and cashew curry", "img":"img/paneer_kaju.jpeg"},
-  {"id":338, "cat":"VEG GRAVY", "name":"पनीर छोले / Paneer Chole", "desc":"Paneer and chickpea curry", "img":"img/paneer_chole.jpeg"},
-  {"id":339, "cat":"VEG GRAVY", "name":"पनीर खट्टा-मिठा / Paneer Khatta-Meetha", "desc":"Sweet and sour paneer", "img":"img/paneer_khatta_meetha.jpeg"},
-  {"id":340, "cat":"VEG GRAVY", "name":"पनीर कढाई / Paneer Kadhai", "desc":"Spicy paneer cooked in wok", "img":"img/paneer_kadhai.jpeg"},
-  {"id":341, "cat":"VEG GRAVY", "name":"काजू करी / Kaju Curry", "desc":"Rich cashew nut curry", "img":"img/kaju_curry.jpeg"},
-  {"id":342, "cat":"VEG GRAVY", "name":"काजू छोले / Kaju Chole", "desc":"Cashews and chickpea curry", "img":"img/kaju_chole.jpeg"},
-  {"id":343, "cat":"VEG GRAVY", "name":"ग्रीन पीस काजू / Green Peas Kaju", "desc":"Peas and cashew curry", "img":"img/green_peas_kaju.jpeg"},
-  {"id":344, "cat":"VEG GRAVY", "name":"काजू मशरूम / Kaju Mushroom", "desc":"Cashew and mushroom gravy", "img":"img/kaju_mushroom.jpeg"},
-  {"id":345, "cat":"VEG GRAVY", "name":"तवा व्हेज / Tawa Veg", "desc":"Pan fried mixed vegetables", "img":"img/tawa_veg.jpeg"},
-  {"id":346, "cat":"VEG GRAVY", "name":"मिक्स व्हेज / Mix Veg", "desc":"Mixed vegetable curry", "img":"img/mix_veg_2.jpeg"},
-  {"id":347, "cat":"VEG GRAVY", "name":"व्हेज कोल्हापुरी / Veg Kolhapuri", "desc":"Spicy mixed veg curry", "img":"img/veg_kolhapuri.jpeg"},
-  {"id":348, "cat":"VEG GRAVY", "name":"व्हेज कढाई / Veg Kadhai", "desc":"Mixed veggies in spicy wok sauce", "img":"img/veg_kadhai.jpeg"},
-  {"id":349, "cat":"VEG GRAVY", "name":"व्हेज कुर्मा / Veg Kurma", "desc":"Vegetables in coconut curry", "img":"img/veg_kurma.jpeg"},
-  {"id":350, "cat":"VEG GRAVY", "name":"व्हेज हरियाला / Veg Hariyali", "desc":"Vegetables in green gravy", "img":"img/veg_hariyali.jpeg"},
-  {"id":351, "cat":"VEG GRAVY", "name":"स्टफ्ड कॅप्सीकम / Stuffed Capsicum", "desc":"Stuffed bell peppers in gravy", "img":"img/stuffed_capsicum.jpeg"},
-  {"id":352, "cat":"VEG GRAVY", "name":"व्हेज हांडी / Veg Handi", "desc":"Mixed veg cooked in earthen pot", "img":"img/veg_handi.jpeg"},
-  {"id":353, "cat":"VEG GRAVY", "name":"व्हेज कोफ्ता / Veg Kofta", "desc":"Vegetable dumplings in gravy", "img":"img/veg_kofta.jpeg"},
-  {"id":354, "cat":"VEG GRAVY", "name":"दम आलू / Dum Aloo", "desc":"Slow cooked spicy potatoes", "img":"img/dum_aloo.jpeg"},
-  {"id":355, "cat":"VEG GRAVY", "name":"आलू मटर / Aloo Matar", "desc":"Potato and green peas curry", "img":"img/aloo_matar_2.jpeg"},
-  {"id":356, "cat":"VEG GRAVY", "name":"आलू पालक / Aloo Palak", "desc":"Potato and spinach curry", "img":"img/aloo_palak.jpeg"},
-  {"id":357, "cat":"VEG GRAVY", "name":"आलू जीरा / Aloo Jeera", "desc":"Cumin tempered potatoes", "img":"img/aloo_jeera.jpeg"},
-  {"id":358, "cat":"VEG GRAVY", "name":"आलू छोले / Aloo Chole", "desc":"Potato and chickpea curry", "img":"img/aloo_chole.jpeg"},
-  {"id":359, "cat":"VEG GRAVY", "name":"आलू गोबी / Aloo Gobi", "desc":"Potato and cauliflower curry", "img":"img/aloo_gobi.jpeg"},
-  {"id":360, "cat":"VEG GRAVY", "name":"आलू मसाला / Aloo Masala", "desc":"Spicy potato curry", "img":"img/aloo_masala.jpeg"},
-  {"id":361, "cat":"VEG GRAVY", "name":"टोमॅटो मटर / Tomato Matar", "desc":"Tomato and peas curry", "img":"img/tomato_matar.jpeg"},
-  {"id":362, "cat":"VEG GRAVY", "name":"बैंगन मसाला / Baingan Masala", "desc":"Spicy eggplant curry", "img":"img/baingan_masala_3.jpeg"},
-  {"id":363, "cat":"VEG GRAVY", "name":"बैंगन भर्ता / Baingan Bharta", "desc":"Smoked mashed eggplant", "img":"img/baingan_bharta.jpeg"},
-  {"id":364, "cat":"VEG GRAVY", "name":"भेंडी फ्राय/मसाला / Bhendi Fry/Masala", "desc":"Spiced okra preparation", "img":"img/bhendi_fry_masala.jpeg"},
-  {"id":365, "cat":"VEG GRAVY", "name":"छोले मसाला / Chole Masala", "desc":"Spicy chickpea curry", "img":"img/chole_masala_2.jpeg"},
-  {"id":366, "cat":"VEG GRAVY", "name":"राजमा मसाला / Rajma Masala", "desc":"Kidney beans curry", "img":"img/rajma_masala_2.jpeg"},
-  {"id":367, "cat":"VEG GRAVY", "name":"मटर मसाला / Matar Masala", "desc":"Green peas spicy curry", "img":"img/matar_masala_2.jpeg"},
-  {"id":368, "cat":"VEG GRAVY", "name":"मटकी मसाला / Matki Masala", "desc":"Moth bean spicy curry", "img":"img/matki_masala.jpeg"},
-  {"id":369, "cat":"VEG GRAVY", "name":"हिरवी मटकी / Hirvi Matki", "desc":"Green moth bean curry", "img":"img/hirvi_matki.jpeg"},
-  {"id":370, "cat":"VEG GRAVY", "name":"पिवळी मटकी / Pivali Matki", "desc":"Yellow moth bean curry", "img":"img/pivali_matki.jpeg"},
-  {"id":371, "cat":"VEG GRAVY", "name":"मसुरदाल मसाला / Masoor Dal Masala", "desc":"Red lentil spicy curry", "img":"img/masoor_dal_masala.jpeg"},
-  {"id":372, "cat":"VEG GRAVY", "name":"मशरूम मटर म. / Mushroom Matar Masala", "desc":"Mushroom and peas spicy gravy", "img":"img/mushroom_matar_masala.jpeg"},
-  {"id":373, "cat":"VEG GRAVY", "name":"शेव भाजी / Shev Bhaji", "desc":"Spicy curry topped with crispy shev", "img":"img/shev_bhaji.jpeg"},
-  {"id":374, "cat":"VEG GRAVY", "name":"प्लेन पालक / Plain Palak", "desc":"Plain spinach puree", "img":"img/plain_palak.jpeg"},
-  {"id":375, "cat":"VEG GRAVY", "name":"गोबी मटर / Gobi Matar", "desc":"Cauliflower and peas curry", "img":"img/gobi_matar.jpeg"},
-  {"id":376, "cat":"ROTI", "name":"प्लेन रोटी / Plain Roti", "desc":"Tandoor baked plain bread", "img":"img/plain_roti.jpeg"},
-  {"id":377, "cat":"ROTI", "name":"बटर रोटी / Butter Roti", "desc":"Tandoor baked buttered bread", "img":"img/butter_roti.jpeg"},
-  {"id":378, "cat":"ROTI", "name":"तंदुरी रोटी / Tandoori Roti", "desc":"Traditional tandoor bread", "img":"img/tandoori_roti_2.jpeg"},
-  {"id":379, "cat":"ROTI", "name":"रूमाली रोटी / Rumali Roti", "desc":"Paper thin soft flatbread", "img":"img/rumali_roti_2.jpeg"},
-  {"id":380, "cat":"ROTI", "name":"पराठा / Paratha", "desc":"Flaky wheat flatbread", "img":"img/paratha.jpeg"},
-  {"id":381, "cat":"ROTI", "name":"बटर पराठा / Butter Paratha", "desc":"Buttered flaky wheat flatbread", "img":"img/butter_paratha.jpeg"},
-  {"id":382, "cat":"ROTI", "name":"तवा पराठा / Tawa Paratha", "desc":"Pan fried flatbread", "img":"img/tawa_paratha.jpeg"},
-  {"id":383, "cat":"ROTI", "name":"नान / Naan", "desc":"Soft leavened bread", "img":"img/naan_2.jpeg"},
-  {"id":384, "cat":"ROTI", "name":"बटर नान / Butter Naan", "desc":"Buttered soft leavened bread", "img":"img/butter_naan.jpeg"},
-  {"id":385, "cat":"ROTI", "name":"मिस्सी रोटी / Missi Roti", "desc":"Spiced gram flour flatbread", "img":"img/missi_roti.jpeg"},
-  {"id":386, "cat":"ROTI", "name":"फुल्का / Phulka", "desc":"Soft puffed wheat flatbread", "img":"img/phulka_2.jpeg"},
-  {"id":387, "cat":"ROTI", "name":"पुरी/पालक पुरी / Puri / Palak Puri", "desc":"Deep fried plain or spinach bread", "img":"img/puri_palak_puri.jpeg"},
-  {"id":388, "cat":"DAL", "name":"प्लेन दाल / Plain Dal", "desc":"Simple cooked yellow lentils", "img":"img/plain_dal.jpeg"},
-  {"id":389, "cat":"DAL", "name":"दाल फ्राय / Dal Fry", "desc":"Spiced fried lentils", "img":"img/dal_fry_2.jpeg"},
-  {"id":390, "cat":"DAL", "name":"दाल तडका / Dal Tadka", "desc":"Tempered spiced lentils", "img":"img/dal_tadka_2.jpeg"},
-  {"id":391, "cat":"DAL", "name":"दाल मखनी / Dal Makhani", "desc":"Creamy black lentils", "img":"img/dal_makhani.jpeg"},
-  {"id":392, "cat":"DAL", "name":"आमटी / Amti", "desc":"Maharashtrian sweet and sour dal", "img":"img/amti.jpeg"},
-  {"id":393, "cat":"DAL", "name":"मुंग दाल / Moong Dal", "desc":"Split yellow lentil stew", "img":"img/moong_dal.jpeg"},
-  {"id":394, "cat":"DAL", "name":"दाल पालक / Dal Palak", "desc":"Lentils cooked with spinach", "img":"img/dal_palak.jpeg"},
-  {"id":395, "cat":"DAL", "name":"राजमा दाल / Rajma Dal", "desc":"Kidney bean stew", "img":"img/rajma_dal.jpeg"},
-  {"id":396, "cat":"DAL", "name":"गुजराती कडी / Gujarati Kadhi", "desc":"Sweet and tangy yogurt curry", "img":"img/gujarati_kadhi.jpeg"},
-  {"id":397, "cat":"DAL", "name":"कडी / Kadhi", "desc":"Yogurt and gram flour curry", "img":"img/kadhi.jpeg"},
-  {"id":398, "cat":"DAL", "name":"महाराष्ट्रीयन कडी / Maharashtrian Kadhi", "desc":"Spicy yogurt curry", "img":"img/maharashtrian_kadhi.jpeg"},
-  {"id":399, "cat":"DAL", "name":"ब्राम्हणी कडी / Bramhani Kadhi", "desc":"Traditional sweet yogurt curry", "img":"img/bramhani_kadhi.jpeg"},
-  {"id":400, "cat":"RICE", "name":"स्टिम राईस / Steam Rice", "desc":"Plain steamed rice", "img":"img/steam_rice.jpeg"},
-  {"id":401, "cat":"RICE", "name":"जीरा राईस / Jeera Rice", "desc":"Cumin flavored rice", "img":"img/jeera_rice_2.jpeg"},
-  {"id":402, "cat":"RICE", "name":"व्हेज पुलाव / Veg Pulao", "desc":"Mixed vegetable rice", "img":"img/veg_pulao_2.jpeg"},
-  {"id":403, "cat":"RICE", "name":"ग्रीन पीस पुलाव / Green Peas Pulao", "desc":"Rice with green peas", "img":"img/green_peas_pulao.jpeg"},
-  {"id":404, "cat":"RICE", "name":"चिझ पुलाव / Cheese Pulao", "desc":"Cheesy vegetable rice", "img":"img/cheese_pulao.jpeg"},
-  {"id":405, "cat":"RICE", "name":"कश्मीरी पुलाव / Kashmiri Pulao", "desc":"Sweet rich rice with fruits and nuts", "img":"img/kashmiri_pulao.jpeg"},
-  {"id":406, "cat":"RICE", "name":"व्हेज बिर्याणी / Veg Biryani", "desc":"Spicy layered vegetable rice", "img":"img/veg_biryani_3.jpeg"},
-  {"id":407, "cat":"RICE", "name":"पालक राईस / Palak Rice", "desc":"Spinach flavored rice", "img":"img/palak_rice.jpeg"},
-  {"id":408, "cat":"RICE", "name":"मेथी राईस / Methi Rice", "desc":"Fenugreek flavored rice", "img":"img/methi_rice.jpeg"},
-  {"id":409, "cat":"RICE", "name":"तिरंगा राईस / Tiranga Rice", "desc":"Tri-colored layered rice", "img":"img/tiranga_rice.jpeg"},
-  {"id":410, "cat":"RICE", "name":"बिर्याणी राईस / Biryani Rice", "desc":"Plain flavored biryani rice", "img":"img/biryani_rice.jpeg"},
-  {"id":411, "cat":"RICE", "name":"ड्रायफ्रुट राईस / Dry Fruit Rice", "desc":"Rice loaded with dry fruits", "img":"img/dry_fruit_rice.jpeg"},
+  {"id":221, "cat":"BARBEQUE", "name":"पनीर टिक्का / Paneer Tikka", "desc":"Grilled marinated paneer chunks", "img":"img/paneer_tikka.jpg"},
+  {"id":222, "cat":"BARBEQUE", "name":"पायनॅप्पल टिक्का / Pineapple Tikka", "desc":"Grilled spiced pineapple", "img":"img/pineapple_tikka.jpg"},
+  {"id":223, "cat":"BARBEQUE", "name":"सोया चाप टिक्का / Soya Chaap Tikka", "desc":"Grilled marinated soya chaap", "img":"img/soya_chaap_tikka.jpg"},
+  {"id":224, "cat":"BARBEQUE", "name":"पनीर मलाई टिक्का / Paneer Malai Tikka", "desc":"Creamy grilled paneer", "img":"img/paneer_malai_tikka.jpg"},
+  {"id":225, "cat":"BARBEQUE", "name":"व्हेज सीक कबाब / Veg Seekh Kabab", "desc":"Minced vegetable skewers", "img":"img/veg_seekh_kabab.jpg"},
+  {"id":226, "cat":"BARBEQUE", "name":"तंदुरी मोमोज / Tandoori Momos", "desc":"Tandoor baked stuffed dumplings", "img":"img/tandoori_momos.jpg"},
+  {"id":227, "cat":"BARBEQUE", "name":"काश्मिरी पहाडी आलू / Kashmiri Pahadi Aloo", "desc":"Spiced roasted baby potatoes", "img":"img/kashmiri_pahadi_aloo.jpg"},
+  {"id":228, "cat":"BARBEQUE", "name":"मशरूम टिक्का / Mushroom Tikka", "desc":"Grilled marinated mushrooms", "img":"img/mushroom_tikka.jpg"},
+  {"id":229, "cat":"CHAAT", "name":"पानीपुरी / Pani Puri", "desc":"Crispy puris with tangy water", "img":"img/pani_puri.jpg"},
+  {"id":230, "cat":"CHAAT", "name":"आलू चाट / Aloo Chaat", "desc":"Spicy potato snack", "img":"img/aloo_chaat.jpg"},
+  {"id":231, "cat":"CHAAT", "name":"आलू टिक्की / Aloo Tikki", "desc":"Crispy spiced potato patties", "img":"img/aloo_tikki.jpg"},
+  {"id":232, "cat":"CHAAT", "name":"समोसा चाट / Samosa Chaat", "desc":"Crushed samosa with chutneys", "img":"img/samosa_chaat.jpg"},
+  {"id":233, "cat":"CHAAT", "name":"भेळ / Bhel", "desc":"Puffed rice tangy snack", "img":"img/bhel.jpg"},
+  {"id":234, "cat":"CHAAT", "name":"रगडा पेटीस / Ragda Pattice", "desc":"Potato patties with white peas curry", "img":"img/ragda_pattice.jpg"},
+  {"id":235, "cat":"CHAAT", "name":"शेव-पुरी / Shev Puri", "desc":"Crispy flat puris with toppings", "img":"img/shev_puri.jpg"},
+  {"id":236, "cat":"CHAAT", "name":"दही पुरी / Dahi Puri", "desc":"Puris stuffed with sweet yogurt", "img":"img/dahi_puri.jpg"},
+  {"id":237, "cat":"CHAAT", "name":"कच्ची दाबेली / Kacchi Dabeli", "desc":"Spicy potato filling in bun", "img":"img/kacchi_dabeli.jpg"},
+  {"id":238, "cat":"CHAAT", "name":"बिकानेर चाट / Bikaner Chaat", "desc":"Traditional Bikaneri snack", "img":"img/bikaner_chaat.jpg"},
+  {"id":239, "cat":"CHAAT", "name":"यु.पी. चाट / U.P. Chaat", "desc":"Uttar Pradesh style spicy chaat", "img":"img/up_chaat.jpg"},
+  {"id":240, "cat":"CHAAT", "name":"रगडा समोसा / Ragda Samosa", "desc":"Samosa topped with peas curry", "img":"img/ragda_samosa.jpg"},
+  {"id":241, "cat":"CHAAT", "name":"पाव भाजी / Pav Bhaji", "desc":"Spicy mashed veg with buttered bread", "img":"img/pav_bhaji.jpg"},
+  {"id":242, "cat":"CHAAT", "name":"जैन पाव-भाजी / Jain Pav Bhaji", "desc":"Pav bhaji without onion/garlic", "img":"img/jain_pav_bhaji.jpg"},
+  {"id":243, "cat":"CHAAT", "name":"खडा पाव-भाजी / Khada Pav Bhaji", "desc":"Chunky style pav bhaji", "img":"img/khada_pav_bhaji.jpg"},
+  {"id":244, "cat":"CHAAT", "name":"पिझ्झा / बर्गर / Pizza / Burger", "desc":"Fast food snacks", "img":"img/pizza_burger.jpg"},
+  {"id":245, "cat":"CHAAT", "name":"छोले भटुरे / Chole Bhature", "desc":"Spicy chickpeas with fried bread", "img":"img/chole_bhature.jpg"},
+  {"id":246, "cat":"CHAAT", "name":"पॉपकॉर्न / Popcorn", "desc":"Freshly popped corn", "img":"img/popcorn.jpg"},
+  {"id":247, "cat":"CHAAT", "name":"दही भल्ले / Dahi Bhalle", "desc":"Lentil fritters in sweet yogurt", "img":"img/dahi_bhalle.jpg"},
+  {"id":248, "cat":"CHAAT", "name":"बास्केट चाट / Basket Chaat", "desc":"Edible potato basket chaat", "img":"img/basket_chaat.jpg"},
+  {"id":249, "cat":"JUICE & SHAKES", "name":"पेरू चिल्ली ज्युस / Guava Chilli Juice", "desc":"Spicy guava juice", "img":"img/guava_chilli_juice.jpg"},
+  {"id":250, "cat":"JUICE & SHAKES", "name":"फ्रुट पंच ज्युस / Fruit Punch Juice", "desc":"Mixed fruit juice", "img":"img/fruit_punch.jpg"},
+  {"id":251, "cat":"JUICE & SHAKES", "name":"कटरीना ज्युस / Katrina Juice", "desc":"Special mixed juice", "img":"img/katrina_juice.jpg"},
+  {"id":252, "cat":"JUICE & SHAKES", "name":"स्वित्झर्लंड ज्युस / Switzerland Juice", "desc":"Special exotic juice", "img":"img/switzerland_juice.jpg"},
+  {"id":253, "cat":"JUICE & SHAKES", "name":"मोसंबी ज्युस / Mosambi Juice", "desc":"Sweet lime juice", "img":"img/mosambi_juice.jpg"},
+  {"id":254, "cat":"JUICE & SHAKES", "name":"ऑरेंज ज्युस / Orange Juice", "desc":"Fresh orange juice", "img":"img/orange_juice.jpg"},
+  {"id":255, "cat":"JUICE & SHAKES", "name":"वॉटरमेलन ज्युस / Watermelon Juice", "desc":"Fresh watermelon juice", "img":"img/watermelon_juice.jpg"},
+  {"id":256, "cat":"JUICE & SHAKES", "name":"पायनॅप्पल ज्युस / Pineapple Juice", "desc":"Fresh pineapple juice", "img":"img/pineapple_juice.jpg"},
+  {"id":257, "cat":"JUICE & SHAKES", "name":"ॲप्पल ज्युस / Apple Juice", "desc":"Fresh apple juice", "img":"img/apple_juice.jpg"},
+  {"id":258, "cat":"JUICE & SHAKES", "name":"चिकू मिल्क शेक / Chikoo Milkshake", "desc":"Sapodilla blended with milk", "img":"img/chikoo_milkshake.jpg"},
+  {"id":259, "cat":"JUICE & SHAKES", "name":"बनाना मिल्क शेक / Banana Milkshake", "desc":"Banana blended with milk", "img":"img/banana_milkshake.jpg"},
+  {"id":260, "cat":"JUICE & SHAKES", "name":"मँगो मिल्क शेक / Mango Milkshake", "desc":"Mango blended with milk", "img":"img/mango_milkshake.jpg"},
+  {"id":261, "cat":"JUICE & SHAKES", "name":"स्ट्रॉबेरी मिल्क शेक / Strawberry Milkshake", "desc":"Strawberry blended with milk", "img":"img/strawberry_milkshake.jpg"},
+  {"id":262, "cat":"JUICE & SHAKES", "name":"रोझ मिल्क शेक / Rose Milkshake", "desc":"Rose flavored milkshake", "img":"img/rose_milkshake.jpg"},
+  {"id":263, "cat":"WELCOME DRINK", "name":"वर्जिन मोजितो / Virgin Mojito", "desc":"Mint and lime refreshing drink", "img":"img/virgin_mojito.jpg"},
+  {"id":264, "cat":"WELCOME DRINK", "name":"ग्रिन मोजितो / Green Mojito", "desc":"Green mint flavored mojito", "img":"img/green_mojito.jpg"},
+  {"id":265, "cat":"WELCOME DRINK", "name":"लेमन मोजितो / Lemon Mojito", "desc":"Lemon flavored mojito", "img":"img/lemon_mojito.jpg"},
+  {"id":266, "cat":"WELCOME DRINK", "name":"जिंजर मोजितो / Ginger Mojito", "desc":"Ginger flavored mojito", "img":"img/ginger_mojito.jpg"},
+  {"id":267, "cat":"WELCOME DRINK", "name":"जिरो सोडा / Jeera Soda", "desc":"Cumin flavored fizzy drink", "img":"img/jeera_soda.jpg"},
+  {"id":268, "cat":"WELCOME DRINK", "name":"ग्रीन लगुन / Green Lagoon", "desc":"Green sweet mocktail", "img":"img/green_lagoon.jpg"},
+  {"id":269, "cat":"WELCOME DRINK", "name":"ब्लु लगुन / Blue Lagoon", "desc":"Blue curacao mocktail", "img":"img/blue_lagoon.jpg"},
+  {"id":270, "cat":"WELCOME DRINK", "name":"पिना कोलाडा / Pina Colada", "desc":"Pineapple and coconut mocktail", "img":"img/pina_colada.jpg"},
+  {"id":271, "cat":"WELCOME DRINK", "name":"रोझ मॉकटेल / Rose Mocktail", "desc":"Rose flavored mocktail", "img":"img/rose_mocktail.jpg"},
+  {"id":272, "cat":"WELCOME DRINK", "name":"खस मॉकटेल / Khus Mocktail", "desc":"Vetiver flavored mocktail", "img":"img/khus_mocktail.jpg"},
+  {"id":273, "cat":"PAPAD", "name":"रोस्टेड पापड / Roasted Papad", "desc":"Dry roasted papad", "img":"img/roasted_papad.jpg"},
+  {"id":274, "cat":"PAPAD", "name":"फ्राय पापड / Fried Papad", "desc":"Deep fried papad", "img":"img/fried_papad.jpg"},
+  {"id":275, "cat":"PAPAD", "name":"डिस्को पापड / Disco Papad", "desc":"Mini crispy papad", "img":"img/disco_papad.jpg"},
+  {"id":276, "cat":"PAPAD", "name":"मसाला पापड / Masala Papad", "desc":"Papad topped with spiced onions/tomatoes", "img":"img/masala_papad.jpg"},
+  {"id":277, "cat":"PAPAD", "name":"पापड भेळ / Papad Bhel", "desc":"Crushed papad snack mix", "img":"img/papad_bhel.jpg"},
+  {"id":278, "cat":"PAPAD", "name":"खिचिया / Khichiya", "desc":"Rice flour crispy papad", "img":"img/khichiya.jpg"},
+  {"id":279, "cat":"NAMKEEN", "name":"शेव / Shev", "desc":"Crispy gram flour noodles", "img":"img/shev.jpg"},
+  {"id":280, "cat":"NAMKEEN", "name":"शेवदाल / Shev Dal", "desc":"Crispy shev with fried lentils", "img":"img/shev_dal.jpg"},
+  {"id":281, "cat":"NAMKEEN", "name":"मक्का चिवडा / Makka Chivda", "desc":"Corn flakes savory snack", "img":"img/makka_chivda.jpg"},
+  {"id":282, "cat":"NAMKEEN", "name":"सांबुदाणा चिवडा / Sabudana Chivda", "desc":"Sago pearls savory snack", "img":"img/sabudana_chivda.jpg"},
+  {"id":283, "cat":"NAMKEEN", "name":"दालमुठ / Dalmoth", "desc":"Spicy fried lentil snack", "img":"img/dalmoth.jpg"},
+  {"id":284, "cat":"NAMKEEN", "name":"गाठीया / Gathiya", "desc":"Thick gram flour sticks", "img":"img/gathiya.jpg"},
+  {"id":285, "cat":"NAMKEEN", "name":"फरसाण / Farsan", "desc":"Mixed savory snack", "img":"img/farsan.jpg"},
+  {"id":286, "cat":"NAMKEEN", "name":"लहसुन शेव / Lahsun Shev", "desc":"Garlic flavored crispy shev", "img":"img/lahsun_shev.jpg"},
+  {"id":287, "cat":"NAMKEEN", "name":"पापडी / Papdi", "desc":"Crispy flat savory crackers", "img":"img/papdi.jpg"},
+  {"id":288, "cat":"SNACKS", "name":"इडली सांबर / Idli Sambar", "desc":"Steamed rice cakes with lentil stew", "img":"img/idli_sambar.jpg"},
+  {"id":289, "cat":"SNACKS", "name":"समोसा / Samosa", "desc":"Crispy potato stuffed pastry", "img":"img/samosa.jpg"},
+  {"id":290, "cat":"SNACKS", "name":"मिनी समोसा / Mini Samosa", "desc":"Bite sized savory pastry", "img":"img/mini_samosa.jpg"},
+  {"id":291, "cat":"SNACKS", "name":"मसाला डोसा / Masala Dosa", "desc":"Crispy crepe with potato filling", "img":"img/masala_dosa.jpg"},
+  {"id":292, "cat":"SNACKS", "name":"उत्ताप्पा / Uttappa", "desc":"Thick savory pancake", "img":"img/uttappa.jpg"},
+  {"id":293, "cat":"SNACKS", "name":"उडीद वडा / Udid Vada", "desc":"Fried lentil savory donuts", "img":"img/udid_vada.jpg"},
+  {"id":294, "cat":"SNACKS", "name":"उपिट/पोहे / Upit/Poha", "desc":"Semolina/Flattened rice breakfast", "img":"img/upit_poha.jpg"},
+  {"id":295, "cat":"SNACKS", "name":"सॅन्डविच / Sandwich", "desc":"Bread stuffed with veggies", "img":"img/sandwich.jpg"},
+  {"id":296, "cat":"SNACKS", "name":"कांदा भजी / Kanda Bhaji", "desc":"Crispy onion fritters", "img":"img/kanda_bhaji.jpg"},
+  {"id":297, "cat":"SNACKS", "name":"गोल भजी / Gol Bhaji", "desc":"Round crispy fritters", "img":"img/gol_bhaji.jpg"},
+  {"id":298, "cat":"SNACKS", "name":"पालक भजी / Palak Bhaji", "desc":"Spinach fritters", "img":"img/palak_bhaji.jpg"},
+  {"id":299, "cat":"SNACKS", "name":"कोथिंबीर वडी / Kothimbir Vadi", "desc":"Coriander savory cakes", "img":"img/kothimbir_vadi.jpg"},
+  {"id":300, "cat":"SNACKS", "name":"खमंग ढोकला / Khamang Dhokla", "desc":"Spongy gram flour snack", "img":"img/khamang_dhokla.jpg"},
+  {"id":301, "cat":"SNACKS", "name":"मिक्स पकोडा / Mix Pakoda", "desc":"Mixed vegetable fritters", "img":"img/mix_pakoda.jpg"},
+  {"id":302, "cat":"SNACKS", "name":"वडा-पाव / Vada Pav", "desc":"Potato patty in a bun", "img":"img/vada_pav.jpg"},
+  {"id":303, "cat":"SNACKS", "name":"शाबुदाणा वडा / Sabudana Vada", "desc":"Fried sago pearls patties", "img":"img/sabudana_vada.jpg"},
+  {"id":304, "cat":"CHUTNEY", "name":"ठेचा / Thecha", "desc":"Spicy crushed chilli and garlic", "img":"img/thecha.jpg"},
+  {"id":305, "cat":"CHUTNEY", "name":"ग्रीन चटणी / Green Chutney", "desc":"Mint and coriander dip", "img":"img/green_chutney.jpg"},
+  {"id":306, "cat":"CHUTNEY", "name":"शेंगदाणा चटणी / Shengdana Chutney", "desc":"Dry peanut chutney", "img":"img/shengdana_chutney.jpg"},
+  {"id":307, "cat":"CHUTNEY", "name":"लहसुन चटणी / Lahsun Chutney", "desc":"Spicy garlic chutney", "img":"img/lahsun_chutney.jpg"},
+  {"id":308, "cat":"CHUTNEY", "name":"पुदिना चटणी / Pudina Chutney", "desc":"Fresh mint chutney", "img":"img/pudina_chutney.jpg"},
+  {"id":309, "cat":"CHUTNEY", "name":"खजुर चटणी / Khajur Chutney", "desc":"Sweet date and tamarind dip", "img":"img/khajur_chutney.jpg"},
+  {"id":310, "cat":"PICKLES", "name":"आम आचार / Aam Achar", "desc":"Spicy mango pickle", "img":"img/aam_achar.jpg"},
+  {"id":311, "cat":"PICKLES", "name":"मिक्स आचार / Mix Achar", "desc":"Mixed vegetable pickle", "img":"img/mix_achar.jpg"},
+  {"id":312, "cat":"PICKLES", "name":"आवला आचार / Amla Achar", "desc":"Gooseberry pickle", "img":"img/amla_achar.jpg"},
+  {"id":313, "cat":"PICKLES", "name":"मिरची आचार / Mirchi Achar", "desc":"Spicy green chilli pickle", "img":"img/mirchi_achar.jpg"},
+  {"id":314, "cat":"PICKLES", "name":"लिंबु आचार / Limbu Achar", "desc":"Tangy lemon pickle", "img":"img/limbu_achar.jpg"},
+  {"id":315, "cat":"PICKLES", "name":"आद्रक लहसुन / Adrak Lahsun", "desc":"Ginger and garlic pickle", "img":"img/adrak_lahsun_pickle.jpg"},
+  {"id":316, "cat":"BEVERAGES", "name":"चहा / Tea", "desc":"Hot brewed tea", "img":"img/tea.jpg"},
+  {"id":317, "cat":"BEVERAGES", "name":"कॉफी / Coffee", "desc":"Hot brewed coffee", "img":"img/coffee.jpg"},
+  {"id":318, "cat":"BEVERAGES", "name":"लस्सी / Lassi", "desc":"Sweetened yogurt drink", "img":"img/lassi.jpg"},
+  {"id":319, "cat":"BEVERAGES", "name":"बटर मिल्क / Butter Milk", "desc":"Spiced thin yogurt drink", "img":"img/butter_milk.jpg"},
+  {"id":320, "cat":"BEVERAGES", "name":"रसना / Rasna", "desc":"Fruit flavored soft drink", "img":"img/rasna.jpg"},
+  {"id":321, "cat":"BEVERAGES", "name":"लिंबु शर्बत / Limbu Sharbat", "desc":"Sweet lime water", "img":"img/limbu_sharbat.jpg"},
+  {"id":322, "cat":"SOUP", "name":"टोमॅटो सुप / Tomato Soup", "desc":"Warm tomato broth", "img":"img/tomato_soup_3.jpg"},
+  {"id":323, "cat":"SOUP", "name":"पालक सुप / Palak Soup", "desc":"Warm spinach broth", "img":"img/palak_soup_2.jpg"},
+  {"id":324, "cat":"SOUP", "name":"व्हेज मंचाव सुप / Veg Manchow Soup", "desc":"Spicy dark chinese soup", "img":"img/veg_manchow_soup.jpg"},
+  {"id":325, "cat":"SOUP", "name":"हॉट ॲण्ड सॉर सुप / Hot & Sour Soup", "desc":"Spicy and tangy soup", "img":"img/hot_and_sour_soup.jpg"},
+  {"id":326, "cat":"SOUP", "name":"व्हेज सुप / Veg Soup", "desc":"Clear vegetable broth", "img":"img/veg_soup.jpg"},
+  {"id":327, "cat":"SOUP", "name":"स्विट कॉर्न सुप / Sweet Corn Soup", "desc":"Creamy corn and veg soup", "img":"img/sweet_corn_soup.jpg"},
+  {"id":328, "cat":"VEG GRAVY", "name":"पनीर टिक्का मसाला / Paneer Tikka Masala", "desc":"Grilled paneer in rich gravy", "img":"img/paneer_tikka_masala.jpg"},
+  {"id":329, "cat":"VEG GRAVY", "name":"पनीर बटर मसाला / Paneer Butter Masala", "desc":"Paneer in creamy tomato gravy", "img":"img/paneer_butter_masala.jpg"},
+  {"id":330, "cat":"VEG GRAVY", "name":"मटर पनीर / Matar Paneer", "desc":"Peas and paneer gravy", "img":"img/matar_paneer_2.jpg"},
+  {"id":331, "cat":"VEG GRAVY", "name":"पालक पनीर / Palak Paneer", "desc":"Paneer in spinach gravy", "img":"img/palak_paneer_2.jpg"},
+  {"id":332, "cat":"VEG GRAVY", "name":"पनीर मशरूम / Paneer Mushroom", "desc":"Paneer and mushrooms in gravy", "img":"img/paneer_mushroom.jpg"},
+  {"id":333, "cat":"VEG GRAVY", "name":"पनीर भुर्जी / Paneer Bhurji", "desc":"Scrambled spiced paneer", "img":"img/paneer_bhurji.jpg"},
+  {"id":334, "cat":"VEG GRAVY", "name":"शाही पनीर / Shahi Paneer", "desc":"Paneer in rich cashew gravy", "img":"img/shahi_paneer.jpg"},
+  {"id":335, "cat":"VEG GRAVY", "name":"पनीर मसाला / Paneer Masala", "desc":"Spicy paneer gravy", "img":"img/paneer_masala_2.jpg"},
+  {"id":336, "cat":"VEG GRAVY", "name":"पनीर कोफ्ता / Paneer Kofta", "desc":"Paneer dumplings in gravy", "img":"img/paneer_kofta.jpg"},
+  {"id":337, "cat":"VEG GRAVY", "name":"पनीर काजू / Paneer Kaju", "desc":"Paneer and cashew curry", "img":"img/paneer_kaju.jpg"},
+  {"id":338, "cat":"VEG GRAVY", "name":"पनीर छोले / Paneer Chole", "desc":"Paneer and chickpea curry", "img":"img/paneer_chole.jpg"},
+  {"id":339, "cat":"VEG GRAVY", "name":"पनीर खट्टा-मिठा / Paneer Khatta-Meetha", "desc":"Sweet and sour paneer", "img":"img/paneer_khatta_meetha.jpg"},
+  {"id":340, "cat":"VEG GRAVY", "name":"पनीर कढाई / Paneer Kadhai", "desc":"Spicy paneer cooked in wok", "img":"img/paneer_kadhai.jpg"},
+  {"id":341, "cat":"VEG GRAVY", "name":"काजू करी / Kaju Curry", "desc":"Rich cashew nut curry", "img":"img/kaju_curry.jpg"},
+  {"id":342, "cat":"VEG GRAVY", "name":"काजू छोले / Kaju Chole", "desc":"Cashews and chickpea curry", "img":"img/kaju_chole.jpg"},
+  {"id":343, "cat":"VEG GRAVY", "name":"ग्रीन पीस काजू / Green Peas Kaju", "desc":"Peas and cashew curry", "img":"img/green_peas_kaju.jpg"},
+  {"id":344, "cat":"VEG GRAVY", "name":"काजू मशरूम / Kaju Mushroom", "desc":"Cashew and mushroom gravy", "img":"img/kaju_mushroom.jpg"},
+  {"id":345, "cat":"VEG GRAVY", "name":"तवा व्हेज / Tawa Veg", "desc":"Pan fried mixed vegetables", "img":"img/tawa_veg.jpg"},
+  {"id":346, "cat":"VEG GRAVY", "name":"मिक्स व्हेज / Mix Veg", "desc":"Mixed vegetable curry", "img":"img/mix_veg_2.jpg"},
+  {"id":347, "cat":"VEG GRAVY", "name":"व्हेज कोल्हापुरी / Veg Kolhapuri", "desc":"Spicy mixed veg curry", "img":"img/veg_kolhapuri.jpg"},
+  {"id":348, "cat":"VEG GRAVY", "name":"व्हेज कढाई / Veg Kadhai", "desc":"Mixed veggies in spicy wok sauce", "img":"img/veg_kadhai.jpg"},
+  {"id":349, "cat":"VEG GRAVY", "name":"व्हेज कुर्मा / Veg Kurma", "desc":"Vegetables in coconut curry", "img":"img/veg_kurma.jpg"},
+  {"id":350, "cat":"VEG GRAVY", "name":"व्हेज हरियाला / Veg Hariyali", "desc":"Vegetables in green gravy", "img":"img/veg_hariyali.jpg"},
+  {"id":351, "cat":"VEG GRAVY", "name":"स्टफ्ड कॅप्सीकम / Stuffed Capsicum", "desc":"Stuffed bell peppers in gravy", "img":"img/stuffed_capsicum.jpg"},
+  {"id":352, "cat":"VEG GRAVY", "name":"व्हेज हांडी / Veg Handi", "desc":"Mixed veg cooked in earthen pot", "img":"img/veg_handi.jpg"},
+  {"id":353, "cat":"VEG GRAVY", "name":"व्हेज कोफ्ता / Veg Kofta", "desc":"Vegetable dumplings in gravy", "img":"img/veg_kofta.jpg"},
+  {"id":354, "cat":"VEG GRAVY", "name":"दम आलू / Dum Aloo", "desc":"Slow cooked spicy potatoes", "img":"img/dum_aloo.jpg"},
+  {"id":355, "cat":"VEG GRAVY", "name":"आलू मटर / Aloo Matar", "desc":"Potato and green peas curry", "img":"img/aloo_matar_2.jpg"},
+  {"id":356, "cat":"VEG GRAVY", "name":"आलू पालक / Aloo Palak", "desc":"Potato and spinach curry", "img":"img/aloo_palak.jpg"},
+  {"id":357, "cat":"VEG GRAVY", "name":"आलू जीरा / Aloo Jeera", "desc":"Cumin tempered potatoes", "img":"img/aloo_jeera.jpg"},
+  {"id":358, "cat":"VEG GRAVY", "name":"आलू छोले / Aloo Chole", "desc":"Potato and chickpea curry", "img":"img/aloo_chole.jpg"},
+  {"id":359, "cat":"VEG GRAVY", "name":"आलू गोबी / Aloo Gobi", "desc":"Potato and cauliflower curry", "img":"img/aloo_gobi.jpg"},
+  {"id":360, "cat":"VEG GRAVY", "name":"आलू मसाला / Aloo Masala", "desc":"Spicy potato curry", "img":"img/aloo_masala.jpg"},
+  {"id":361, "cat":"VEG GRAVY", "name":"टोमॅटो मटर / Tomato Matar", "desc":"Tomato and peas curry", "img":"img/tomato_matar.jpg"},
+  {"id":362, "cat":"VEG GRAVY", "name":"बैंगन मसाला / Baingan Masala", "desc":"Spicy eggplant curry", "img":"img/baingan_masala_3.jpg"},
+  {"id":363, "cat":"VEG GRAVY", "name":"बैंगन भर्ता / Baingan Bharta", "desc":"Smoked mashed eggplant", "img":"img/baingan_bharta.jpg"},
+  {"id":364, "cat":"VEG GRAVY", "name":"भेंडी फ्राय/मसाला / Bhendi Fry/Masala", "desc":"Spiced okra preparation", "img":"img/bhendi_fry_masala.jpg"},
+  {"id":365, "cat":"VEG GRAVY", "name":"छोले मसाला / Chole Masala", "desc":"Spicy chickpea curry", "img":"img/chole_masala_2.jpg"},
+  {"id":366, "cat":"VEG GRAVY", "name":"राजमा मसाला / Rajma Masala", "desc":"Kidney beans curry", "img":"img/rajma_masala_2.jpg"},
+  {"id":367, "cat":"VEG GRAVY", "name":"मटर मसाला / Matar Masala", "desc":"Green peas spicy curry", "img":"img/matar_masala_2.jpg"},
+  {"id":368, "cat":"VEG GRAVY", "name":"मटकी मसाला / Matki Masala", "desc":"Moth bean spicy curry", "img":"img/matki_masala.jpg"},
+  {"id":369, "cat":"VEG GRAVY", "name":"हिरवी मटकी / Hirvi Matki", "desc":"Green moth bean curry", "img":"img/hirvi_matki.jpg"},
+  {"id":370, "cat":"VEG GRAVY", "name":"पिवळी मटकी / Pivali Matki", "desc":"Yellow moth bean curry", "img":"img/pivali_matki.jpg"},
+  {"id":371, "cat":"VEG GRAVY", "name":"मसुरदाल मसाला / Masoor Dal Masala", "desc":"Red lentil spicy curry", "img":"img/masoor_dal_masala.jpg"},
+  {"id":372, "cat":"VEG GRAVY", "name":"मशरूम मटर म. / Mushroom Matar Masala", "desc":"Mushroom and peas spicy gravy", "img":"img/mushroom_matar_masala.jpg"},
+  {"id":373, "cat":"VEG GRAVY", "name":"शेव भाजी / Shev Bhaji", "desc":"Spicy curry topped with crispy shev", "img":"img/shev_bhaji.jpg"},
+  {"id":374, "cat":"VEG GRAVY", "name":"प्लेन पालक / Plain Palak", "desc":"Plain spinach puree", "img":"img/plain_palak.jpg"},
+  {"id":375, "cat":"VEG GRAVY", "name":"गोबी मटर / Gobi Matar", "desc":"Cauliflower and peas curry", "img":"img/gobi_matar.jpg"},
+  {"id":376, "cat":"ROTI", "name":"प्लेन रोटी / Plain Roti", "desc":"Tandoor baked plain bread", "img":"img/plain_roti.jpg"},
+  {"id":377, "cat":"ROTI", "name":"बटर रोटी / Butter Roti", "desc":"Tandoor baked buttered bread", "img":"img/butter_roti.jpg"},
+  {"id":378, "cat":"ROTI", "name":"तंदुरी रोटी / Tandoori Roti", "desc":"Traditional tandoor bread", "img":"img/tandoori_roti_2.jpg"},
+  {"id":379, "cat":"ROTI", "name":"रूमाली रोटी / Rumali Roti", "desc":"Paper thin soft flatbread", "img":"img/rumali_roti_2.jpg"},
+  {"id":380, "cat":"ROTI", "name":"पराठा / Paratha", "desc":"Flaky wheat flatbread", "img":"img/paratha.jpg"},
+  {"id":381, "cat":"ROTI", "name":"बटर पराठा / Butter Paratha", "desc":"Buttered flaky wheat flatbread", "img":"img/butter_paratha.jpg"},
+  {"id":382, "cat":"ROTI", "name":"तवा पराठा / Tawa Paratha", "desc":"Pan fried flatbread", "img":"img/tawa_paratha.jpg"},
+  {"id":383, "cat":"ROTI", "name":"नान / Naan", "desc":"Soft leavened bread", "img":"img/naan_2.jpg"},
+  {"id":384, "cat":"ROTI", "name":"बटर नान / Butter Naan", "desc":"Buttered soft leavened bread", "img":"img/butter_naan.jpg"},
+  {"id":385, "cat":"ROTI", "name":"मिस्सी रोटी / Missi Roti", "desc":"Spiced gram flour flatbread", "img":"img/missi_roti.jpg"},
+  {"id":386, "cat":"ROTI", "name":"फुल्का / Phulka", "desc":"Soft puffed wheat flatbread", "img":"img/phulka_2.jpg"},
+  {"id":387, "cat":"ROTI", "name":"पुरी/पालक पुरी / Puri / Palak Puri", "desc":"Deep fried plain or spinach bread", "img":"img/puri_palak_puri.jpg"},
+  {"id":388, "cat":"DAL", "name":"प्लेन दाल / Plain Dal", "desc":"Simple cooked yellow lentils", "img":"img/plain_dal.jpg"},
+  {"id":389, "cat":"DAL", "name":"दाल फ्राय / Dal Fry", "desc":"Spiced fried lentils", "img":"img/dal_fry_2.jpg"},
+  {"id":390, "cat":"DAL", "name":"दाल तडका / Dal Tadka", "desc":"Tempered spiced lentils", "img":"img/dal_tadka_2.jpg"},
+  {"id":391, "cat":"DAL", "name":"दाल मखनी / Dal Makhani", "desc":"Creamy black lentils", "img":"img/dal_makhani.jpg"},
+  {"id":392, "cat":"DAL", "name":"आमटी / Amti", "desc":"Maharashtrian sweet and sour dal", "img":"img/amti.jpg"},
+  {"id":393, "cat":"DAL", "name":"मुंग दाल / Moong Dal", "desc":"Split yellow lentil stew", "img":"img/moong_dal.jpg"},
+  {"id":394, "cat":"DAL", "name":"दाल पालक / Dal Palak", "desc":"Lentils cooked with spinach", "img":"img/dal_palak.jpg"},
+  {"id":395, "cat":"DAL", "name":"राजमा दाल / Rajma Dal", "desc":"Kidney bean stew", "img":"img/rajma_dal.jpg"},
+  {"id":396, "cat":"DAL", "name":"गुजराती कडी / Gujarati Kadhi", "desc":"Sweet and tangy yogurt curry", "img":"img/gujarati_kadhi.jpg"},
+  {"id":397, "cat":"DAL", "name":"कडी / Kadhi", "desc":"Yogurt and gram flour curry", "img":"img/kadhi.jpg"},
+  {"id":398, "cat":"DAL", "name":"महाराष्ट्रीयन कडी / Maharashtrian Kadhi", "desc":"Spicy yogurt curry", "img":"img/maharashtrian_kadhi.jpg"},
+  {"id":399, "cat":"DAL", "name":"ब्राम्हणी कडी / Bramhani Kadhi", "desc":"Traditional sweet yogurt curry", "img":"img/bramhani_kadhi.jpg"},
+  {"id":400, "cat":"RICE", "name":"स्टिम राईस / Steam Rice", "desc":"Plain steamed rice", "img":"img/steam_rice.jpg"},
+  {"id":401, "cat":"RICE", "name":"जीरा राईस / Jeera Rice", "desc":"Cumin flavored rice", "img":"img/jeera_rice_2.jpg"},
+  {"id":402, "cat":"RICE", "name":"व्हेज पुलाव / Veg Pulao", "desc":"Mixed vegetable rice", "img":"img/veg_pulao_2.jpg"},
+  {"id":403, "cat":"RICE", "name":"ग्रीन पीस पुलाव / Green Peas Pulao", "desc":"Rice with green peas", "img":"img/green_peas_pulao.jpg"},
+  {"id":404, "cat":"RICE", "name":"चिझ पुलाव / Cheese Pulao", "desc":"Cheesy vegetable rice", "img":"img/cheese_pulao.jpg"},
+  {"id":405, "cat":"RICE", "name":"कश्मीरी पुलाव / Kashmiri Pulao", "desc":"Sweet rich rice with fruits and nuts", "img":"img/kashmiri_pulao.jpg"},
+  {"id":406, "cat":"RICE", "name":"व्हेज बिर्याणी / Veg Biryani", "desc":"Spicy layered vegetable rice", "img":"img/veg_biryani_3.jpg"},
+  {"id":407, "cat":"RICE", "name":"पालक राईस / Palak Rice", "desc":"Spinach flavored rice", "img":"img/palak_rice.jpg"},
+  {"id":408, "cat":"RICE", "name":"मेथी राईस / Methi Rice", "desc":"Fenugreek flavored rice", "img":"img/methi_rice.jpg"},
+  {"id":409, "cat":"RICE", "name":"तिरंगा राईस / Tiranga Rice", "desc":"Tri-colored layered rice", "img":"img/tiranga_rice.jpg"},
+  {"id":410, "cat":"RICE", "name":"बिर्याणी राईस / Biryani Rice", "desc":"Plain flavored biryani rice", "img":"img/biryani_rice.jpg"},
+  {"id":411, "cat":"RICE", "name":"ड्रायफ्रुट राईस / Dry Fruit Rice", "desc":"Rice loaded with dry fruits", "img":"img/dry_fruit_rice.jpg"},
 
 ];
 
@@ -1050,6 +1272,20 @@
         msg += `\n\n_Thank you! We'll respond shortly._`;
         return msg;
     }
+    
+    // Scroll to Ceremonial Section
+    document.getElementById('scrollToCeremonialBtn').addEventListener('click', () => {
+        document.getElementById('ceremonialSection').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    });
+    
+    // Scroll to Top
+    document.getElementById('scrollTopBtn').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
     document.getElementById('sendInquiryBtn').onclick = () => { window.open(`https://wa.me/9284969878?text=${encodeURIComponent(buildInquiryMessage())}`, '_blank'); };
     document.getElementById('clearCartBtn').onclick = () => { cart = []; updateCartUI(); renderMenu(); };
     document.querySelectorAll('.brand-pill').forEach(btn => btn.onclick = () => setBrand(btn.dataset.brand));
