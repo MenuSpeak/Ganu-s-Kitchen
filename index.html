@@ -1378,36 +1378,14 @@
         return msg;
     }
     
-    Scroll to Ceremonial Section
+    // Scroll to Ceremonial Section
     document.getElementById('scrollToCeremonialBtn').addEventListener('click', () => {
         document.getElementById('ceremonialSection').scrollIntoView({ 
             behavior: 'smooth', 
             block: 'start' 
         });
     });
-
-
-
-
-
-
-
-
-// document.getElementById('scrollToCeremonialBtn').addEventListener('click', () => {
-//     // Ab yeh Maa Saheb Events wale section mein jayega
-//     const maaSahebSection = document.querySelector('.brand-pill.maa-saheb').closest('.container');
-//     // Ya fir specific ID do us section ko
-//     document.getElementById('maaSahebCeremonialSection').scrollIntoView({ 
-//         behavior: 'smooth', 
-//         block: 'start' 
-//     });
-// });
-
-
-
-
-
-        
+     
     // Scroll to Top
     document.getElementById('scrollTopBtn').addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
