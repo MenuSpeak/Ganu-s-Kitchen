@@ -593,7 +593,7 @@
     </style>
 </head>
 <body>
-<div class="container">
+<!-- <div class="container">
     <div class="brand-header">
         <div class="brand-logos">
             <div class="brand-pill maa-saheb active-brand" data-brand="maa">Maa Saheb Events</div>
@@ -601,8 +601,77 @@
         </div>
         <div class="hero-title">Book Your Premium Catering</div>
         <div class="hero-sub">Fill details & get instant quote on WhatsApp</div>
+    </div> -->
+<div style="text-align:center;padding:30px;font-family:sans-serif;transition:0.4s;" id="brandBox">
+
+    <!-- Buttons -->
+    <div style="display:flex;justify-content:center;gap:10px;margin-bottom:20px;">
+        <div onclick="switchBrand('maa')" id="maaBtn" 
+        style="padding:10px 20px;border-radius:30px;background:#000;color:#fff;cursor:pointer;transition:0.3s;">
+            Maa Saheb Events
+        </div>
+
+        <div onclick="switchBrand('ganu')" id="ganuBtn" 
+        style="padding:10px 20px;border-radius:30px;background:#eee;cursor:pointer;transition:0.3s;">
+            Ganu's Kitchen
+        </div>
     </div>
 
+    <!-- Logo -->
+    <img id="logo" src="img/maa-logo.png"
+    style="width:120px;border-radius:50%;box-shadow:0 5px 20px rgba(0,0,0,0.2);transition:0.4s;">
+
+    <!-- Title -->
+    <h2 id="title" style="margin:10px 0;">Maa Saheb Events</h2>
+
+    <!-- Slogan -->
+    <p id="slogan" style="color:#666;">Premium Wedding Catering</p>
+
+</div>
+
+<script>
+function switchBrand(brand){
+
+    let logo = document.getElementById("logo");
+    let title = document.getElementById("title");
+    let slogan = document.getElementById("slogan");
+    let box = document.getElementById("brandBox");
+
+    // animation start
+    logo.style.transform = "scale(0.8)";
+    logo.style.opacity = "0";
+
+    setTimeout(()=>{
+
+        if(brand === "maa"){
+            logo.src = "event.png";
+            title.innerText = "Maa Saheb Events";
+            slogan.innerText = "Premium Wedding Catering";
+            box.style.background = "#fff";
+        }
+
+        if(brand === "ganu"){
+            logo.src = "ganu.png";
+            title.innerText = "Ganu's Kitchen";
+            slogan.innerText = "Delicious Homemade Food";
+            box.style.background = "#fff7f0";
+        }
+
+        logo.style.transform = "scale(1)";
+        logo.style.opacity = "1";
+
+    },200);
+
+    // button active
+    document.getElementById("maaBtn").style.background = brand==="maa"?"#000":"#eee";
+    document.getElementById("maaBtn").style.color = brand==="maa"?"#fff":"#000";
+
+    document.getElementById("ganuBtn").style.background = brand==="ganu"?"#000":"#eee";
+    document.getElementById("ganuBtn").style.color = brand==="ganu"?"#fff":"#000";
+}
+</script>
+
+    
     <!-- ========== NEW NAVIGATION BUTTON ========== -->
     <div class="nav-buttons">
         <button class="nav-scroll-btn" id="scrollToCeremonialBtn">
